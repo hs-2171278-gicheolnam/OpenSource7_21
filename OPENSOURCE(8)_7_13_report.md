@@ -41,6 +41,7 @@
     - 간단한 설명
   - selenium - 이미지를 크롤링하기 위한 오픈소스
     웹 애플리케이션의 소프트웨어 테스트 프레임워크이다.
+    
     라이선스: Apache License 2.0 
     깃허브 : https://github.com/SeleniumHQ
 
