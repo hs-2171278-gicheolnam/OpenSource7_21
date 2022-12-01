@@ -29,20 +29,11 @@
     - 라이선스: (유료)[상용 라이선스](https://github.com/mysql/mysql-server/blob/8.0/LICENSE)
   - < 오타 수정 오픈소스 >
     - 간단한 설명
-  - < 검색 엔진 오픈소스 >
-<<<<<<< HEAD
-
-    - 간단한 설명
-=======
-<<<<<<< HEAD
+  - Elasticsearch: 검색 엔진 오픈소스 
     - 상품 정보 검색을 위한 오픈소스입니다. 데이터를 저장, 검색 및 관리가 가능한분산된 RESTful 검색 및 분석 엔집입니다.
     - 참고한 깃허브 링크: https://github.com/elastic/elasticsearch
     - 라이선스:[Elastic License 2.0](https://www.elastic.co/kr/licensing/elastic-license)
-=======
 
-    - 간단한 설명
->>>>>>> 874d12175ab6023fa8f490965c0ed7ffa8924aa3
->>>>>>> 5718f82 (오픈소스 관련 2차변경)
 
   - Apache PredictionIO: 사용자 추천 오픈소스
 
@@ -187,7 +178,7 @@
       - 서버에서 3001 포트 보낸 것을 리액트로 가져온다.
 
 - ### MYSQL: DB관리 오픈소스
-<<<<<<< HEAD
+
 
   - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
    - 관계형 데이터베이스: 관계형 데이터베이스는 데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가 어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의된 관계로 데이터를 구성하는 정보 모음
@@ -361,9 +352,6 @@
     ```
         
 
-=======
->>>>>>> 5718f82 (오픈소스 관련 2차변경)
-
   - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
    - 관계형 데이터베이스: 관계형 데이터베이스는 데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가 어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의된 관계로 데이터를 구성하는 정보 모음
   
@@ -536,12 +524,77 @@
     ```
         
 
-<<<<<<< HEAD
-- ### < 검색 엔진 오픈소스 >
-=======
->>>>>>> 5718f82 (오픈소스 관련 2차변경)
-
-  - 설명:
+- ### Elasticsearch: 검색 엔진 오픈소스 
+  - 상품 정보 검색을 위한 오픈소스입니다. 데이터를 저장, 검색 및 관리가 가능한분산된 RESTful 검색 및 분석 엔집입니다.
+  - #### 다음과 같은 정보들을 저장,검색, 관리 할 수 있습니다.
+    - 로그
+    - 메트릭스
+    - 검색 백엔드
+    - 어플레케이션 모니터링
+    - 엔드포인트 보안
+  - #### 시작하는 법
+    - 엘라스틱서치 설정하는 가장 간단한 방법은 엘라스틱 클라우드에서 엘라스틱 서치서비스를 사용하여 중앙 관리 배포를 생성하는 것입니다.
+    - 엘라스틱서치를 직접 설치하고 관리하려는 경우 elastic.co/downloads/elasticsearch에서 최신 버전을 다운로드할 수 있습니다.
+    
+    -**로컬에서 엘라스틱 서치를 실행하는법**
+    
+    - 자신의 컴퓨터에서 엘라스틱서치를 사용할려면 Docker을 사용하는 것이 좋습니다. 엘라스틱서치와 kibana를 모두 실행할 수 있습니다. 도커 이미지는 Elastic Docker registry에서 이용 가능합니다
+    - **엘라스틱 서치 시작하는법**
+      - 1.Docker Desktop을 설치하고 시작합니다. 기본 설정 > 리소스 > 고급으로 이동하여 메모리를 4GB 이상으로 설정합니다.
+      - 2.엘라스틱서치 컨테이너를 시작합니다.
+      ```
+      docker network create elastic
+      docker pull docker.elastic.co/elasticsearch/elasticsearch:{version} (1)
+      docker run --name elasticsearch --net elastic -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -t docker.elastic.co/elasticsearch/elasticsearch:{version}
+      ```
+      - 1.{version}을 실행하려는 엘라스틱서치의 버전으로 바꿉니다.
+    - 엘라스틱서치를 처음 시작하면 생성된 엘라스틱 사용자 비밀번호와 Kibana 등록 토큰이 터미널에 출력됩니다.
+    - 3. 생성된 암호 및 등록 토큰을 복사하여 안전한 위치에 저장합니다. 이러한 값은 엘라스틱서치를 처음 시작할 때만 표시됩니다. 이것을 사용하여 엘라스틱서치 클러스터에 Kibana를 등록하고 로그인합니다.
+  - **kibana 시작하는법**
+    - Kibana를 사용하면 Elastic 검색에 쉽게 요청을 보내고 대화식으로 데이터를 분석, 시각화 및 관리할 수 있습니다.
+      - 1.새 터미널 세션에서 Kibana를 시작하고 엘라스틱서치 컨테이너에 연결합니다.
+      ```
+      docker pull docker.elastic.co/kibana/kibana:{version} (1)
+      docker run --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:{version}
+      ```
+        - 1.버전을 실행하려는 kibana버전으로 바꿉니다.
+      - kibana를 시작하면 고유한 URL터미널에 출력됩니다.
+    - 2.kibana에 엑세스하려면 브라우저에서 생성된 URL을 엽니다.
+      - A.엘라스틱서치를 시작할 때 복사한 등록 토큰을 붙여넣고 버튼을 클릭하여 Kibana 인스턴스를 엘라스틱서치와 연결합니다.
+      - B.엘라스틱서치를 시작할 때 생성된 암호로 Kibana에 Elastic 사용자로 로그인합니다.
+      
+    - **테이터 추가하기**
+      - REST API를 통해 JSON 개체(문서)를 전송하여 Elast search에 데이터를 인덱싱합니다. 텍스트, 숫자 데이터 또는 지리공간 데이터가 정형이든 비정형이든 관계없이 Elastic search는 빠른 검색을 지원하는 방식으로 효율적으로 저장하고 인덱싱합니다.
+      
+      - 로그 및 메트릭과 같은 타임스탬프가 지정된 데이터의 경우 일반적으로 여러 개의 자동 생성 백업 인덱스로 구성된 데이터 스트림에 문서를 추가합니다.
+      
+      - 색인에 단일 문서를 추가하려면 색인을 대상으로 하는 HTTP 게시 요청을 제출하십시오.
+      ```
+      POST /customer/_doc/1
+      {
+      "firstname": "Jennifer",
+      "lastname": "Walters"
+      }
+      ```
+      - 이 요청은 ```고객``` 색인이 없는 경우 자동으로 작성되고 ID가 1인 새 문서를 추가하며 ```이름``` 및 ```성``` 필드를 저장하고 색인화합니다.
+      - 새 문서는 클러스터의 모든 노드에서 즉시 사용할 수 있습니다. 문서 ID를 지정하는 GET 요청으로 검색할 수 있습니다.
+      ```
+      GET /customer/_doc/1
+      ```
+      - 하나의 요청에 여러 문서를 추가하려면 ```_bulk``` API를 사용하십시오. 대량 데이터는 줄바꿈으로 구분된 JSON(NDJSON)이어야 합니다. 각 줄은 마지막 줄을 포함하여 새 줄 문자(```\n```)로 끝나야 합니다.
+      ```
+      PUT customer/_bulk
+      { "create": { } }
+      { "firstname": "Monica","lastname":"Rambeau"}
+      { "create": { } }
+      { "firstname": "Carol","lastname":"Danvers"}
+      { "create": { } }
+      { "firstname": "Wanda","lastname":"Maximoff"}
+      { "create": { } }
+      { "firstname": "Jennifer","lastname":"Takeda"}
+      ```
+    - **검색하기**
+      - 인덱스화된 문서는 거의 실시간으로 검색할 수 있습니다. 다음 검색은 ```고객``` 인덱스에서 제니퍼라는 이름을 가진 모든 고객과 일치합니다.
 
 - ### Apache PredictionIO: 사용자 추천 오픈소스
 
