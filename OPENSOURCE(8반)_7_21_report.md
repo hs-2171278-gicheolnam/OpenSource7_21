@@ -361,20 +361,21 @@
     - #### AMQP(Advanced Message Queuing Protocol)
       - 클라이언트가 메시지 미들웨어 브로커와 통신할 수 있게 해주는 메세징 프로토콜입니다.
       
-                              Broker
-	    Producers -> [Exchange -- Binding --> Queue] -> Consumers
-
+               Broker
+	    
+           Producers -> [Exchange -- Binding --> Queue] -> Consumers
+      
       - 메시지를 발행하는 Producer에서 Broker의 Exchange로 메시지를 전달하면, Binding이라는 규칙에 의해 연결된 Queue로 메시지가 복사됩니다.
       - 메시지를 받아가는 Consumer에서는 Broker의 Queue를 통해 메시지를 받아가서 처리합니다.
        - AMQP에는 네트워크에 문제가 있거나, 메시지를 처리하지 못하는 경우를 대비해 2가지 수신 확인 모델을 갖추고 있습니다.
-
+      
         - 하나는 Consumer는 메시지를 받으면 명시적으로 broker에게 통지하고, 브로커는 이 알림을 받았을 때만 Queue에서 메시지를 삭제합니다. 다른 하나는 Broker가 메시지를 전달하면 자동으로 삭제하는 방식입니다.
-
+      
         - 모든 메시지는 Queue로 직접 전달되지 않고, 반드시 Exchange에서 먼저 받습니. 그리고 Exchange Type과 Binding 규칙에 따라 적절한 Queue로 전달됩니다.
           - Name : Exchange 이름
           - Type : 메시지 전달 방식
          - Direct Exchange
-          - Fanout Exchange
+              - Fanout Exchange
          - Topic Exchange
          - Headers Exchange
          - Durability : 브로커가 재시작될 때 남아있는지 여부(durable, transient)
@@ -387,10 +388,10 @@
       - 메시지에 포함된 routing key를 기반으로 Queue에 메시지를 전달합니다.
       - Exchagne로 전달된 메세지의 routing key가 일치하지 않는 경우 메시지를 무시합니다.
       - Default Exchange는 이름이 없는 Direct Exchange의 한 형태로, 전달될 목적지 Queue 이름과 동일한 routing key를 부여합니다.
-
+  
     - Fanout Exchange
       - routing key와 관계없이 연결된 모든 Queue에 동일한 메시지를 전달합니다.
-
+  
     - Topic Exchange
       - routing key 전체가 일치하거나 일부 패턴과 일치하는 모든 Queue로 메시지가 전달됩니다.
       - 여러 Consumer에서 메시지 형태에 따라 선택적으로 수신해야하는 경우와 같이 다양한 publish/subscribe 패턴 구현에 활용할 수 있습니다.
@@ -399,7 +400,7 @@
        ex)*.orange.* ← quick.orange.rabbit, lazy.orange.elephant
           *.*.rabbit ← quick.orange.rabbit, lazy.pink.rabbit
           lazy.# ← lazy.orange.elephant, lazy.pink.rabbit
-
+  
     - Headers Exchange
       - 메시지 헤더를 통해 binding key만을 사용하는 것보다 더 다양한 속성을 사용할 수 있습니다.
       - Header Exchange를 사용하면 binding key는 무시되고, 헤더 값이 binding 시 지정된 값과 같은 경우에만 일치하는 것으로 간주됩니다.
@@ -425,7 +426,7 @@
     - 뛰어난 성능을 보여줍니다. 초당 수만 건의 메시지는 큰 문제없이 전송이 가능합니다. Apache Kafka 정도의 성능은 아니지만 실사용에는 문제가 없습니다.
     - WebSocket/STOMP 등의 웹 기반 소켓 프로토콜 역시 지원합니다.
     - RabbitMQ 는 다양한 언어로 개발 라이브러리를 제공합니다. 
-
+  
   - #### RabbitMQ의 양방향 통신 과정
     1. 클라이언트와 서버는 API 서버와 동기화(Synchronous)된 요청과 응답을 주고 받습니다.
     2. 클라이언트는 RabbitMQ 서버와 AMQP 연결을 맺습니다.
@@ -440,7 +441,7 @@
       - Round-Robin : 프로세스들 사이에 우선순위를 두지 않고, 순서대로 시간단위로 할당하는 방식의 알고리즘입니다.
     - Consumer가 2개인 상황에서 홀수번째 메세지는 처리 시간이 짧고, 짝수번째 메세지는 처리 시간이 매우 긴 경우, 계속해서 하나의 Consumer만 일을 하게 되는 상황이 발생할 수 있습니다
     - 이를 예방하기 위해, prefetch count를 1로 설정해 두면, 하나의 메세지가 처리되기 전(Ack를 보내기 전)에는 새로운 메세지를 받지 않게 되므로, 작업을 분산시킬 수 있습니다.
-
+  
   - #### RabbitMQ 서버 생성
    - 콘솔 > Server > Server 메뉴에서 RabbitMQ 서버 이미지를 선택하여 생성할 수 있습니다.
    - 원하는 사양의 서버를 생성하고 필요에 따라 스토리지를 추가합니다.
@@ -455,11 +456,11 @@
    5. 터미널 프로그램 접속
    6. 초기 패스워드 확인
    7. RabbitMQ 접속
-   
+  
   - 실행 방법
    ```
     $ systemctl start rabbitmq-server
-  ```
+   ```
   - 새로운 user 추가 및 password 설정
     ```
     $ /bin/bash /opt/rabbitmq/rabbitmq-add-user.sh
@@ -469,38 +470,43 @@
     Creating user "myuser"
     Setting tags for user "myuser" to [administrator]
     Setting permissions for user "myuser" in vhost "/"
-   ```
   - user 삭제
-    ```
-    $ /bin/bash /opt/rabbitmq/rabbitmq-delete-user.sh
-    type your username to delete: admin
+  
+  ```
+  $ /bin/bash /opt/rabbitmq/rabbitmq-delete-user.sh
+  type your username to delete: admin
+  Deleting user "admin"
+  ```
+  
     # output message
-    Deleting user "admin"
-    ```
   - password 변경
+  
     ```
     $ rabbitmqctl change_password <username> <newpassword>
-    ``` 
+    ```
+  
   - RabbitMQ 프로세스 기동
     - systemctl를 사용하여 프로세스를 시작하는 경우
-    ```
-    shell> systemctl start rabbitmq-server
-
-    ```
+  
+  ```
+  shell> systemctl start rabbitmq-server
+  ```
+  
   - RabbitMQ 프로세스 중지
-     ```
-    shell> systemctl stop rabbitmq-server
-
-    ```
+  
+  ```
+  shell> systemctl stop rabbitmq-server
+  ```
+  
   - RabbitMQ 프로세스 확인
-     ```
-    shell> rabbitmqctl status
-
-    ```
+  
+  ```
+  shell> rabbitmqctl status
+  ```
+  
   - RabbitMQ Management UI Plugin 시작하기
-     ```
-    shell> /bin/bash /opt/rabbitmq/rabbitmq-start-management.sh
-
+  
     ```
+    shell> /bin/bash /opt/rabbitmq/rabbitmq-start-management.sh
 
 ## DFD
