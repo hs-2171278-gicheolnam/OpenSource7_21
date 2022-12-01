@@ -25,8 +25,10 @@
     - React: **대화형** 사용자 **인터페이스**를 구축하기 위한 **JavaScript** 라이브러리입니다.
     - 참고한 깃허브 링크: https://github.com/danawalab/service-management.git
     - 라이선스: [MIT License](https://github.com/vercel/next.js/blob/canary/license.md)
-  - < DB 오픈소스>
-    - 간단한 설명
+  - MYSQL: DB관리 오픈소스
+    - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
+    - 참고한 깃허브 링크: https://github.com/mysql/mysql-server.git
+    - 라이선스: (유료)[상용 라이선스](https://github.com/mysql/mysql-server/blob/8.0/LICENSE)
   - < 오타 수정 오픈소스 >
     - 간단한 설명
   - < 검색 엔진 오픈소스 >
@@ -47,8 +49,8 @@
 
 ## 사용된 오픈소스에 대한 설명
 
-
 - ### React, Next.js: GUI 구현을 위한 오픈소스
+
 
   - Next.js: 고속 **웹 애플리케이션**을 만들기 위한 구성 요소를 제공하는 React의 프레임워크입니다.
 
@@ -166,7 +168,180 @@
       - 사용자 폴더에서 가져오기
       - 서버에서 3001 포트 보낸 것을 리액트로 가져온다.
 
-- ### < DB 관리 오픈소스 >
+- ### MYSQL: DB관리 오픈소스
+
+  - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
+   - 관계형 데이터베이스: 관계형 데이터베이스는 데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가 어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의된 관계로 데이터를 구성하는 정보 모음
+  
+  - 여러 프로그래밍 언어와 호환성이 좋음
+
+  - 라이선스: 상용 소프트웨어(유료), GPL v2(무료)
+   - 유료 상용라이선스를 쓰는 이유
+    - Apachi 2.0과 GPL v2는 라이선스 충돌을 일으키기 때문에 유료버전을 이용해 라이선스 충돌을 피해야 함.
+    - 유료 라이선스를 사용하면 백업/복구, 모니터링 등 자체적인 부가기능과 기술지원을 받을 수 있음 
+  
+  - mysql을 사용하는 이유
+    - https://db-engines.com/en/ranking 이 웹사이트는 DBMS 점유율 순위를 알려주는데 mysql은 다른 DBMS들과 큰 차이로 2위를 하고 있음.
+
+    - mysql이 90년대 등장 이래 많은 곳에서 쓰이는 RDBMS이므로 레퍼런스의 수가 다른 DBMS에 비해 많아 사용하기 유용함.
+  
+  - ### mysql 기초 개념
+    - 테이블(Table): 데이터를 기록하는 최종적인 곳
+    - 스키마(Schema): 테이블들을 모아 놓은 것
+    - 데이터베이스(Database): 마찬가지로 테이블들을 모아 놓은 것
+    - 데이터베이스 서버(Database Server): 스키마들을 모아 놓은 곳
+    - 관계형 데이터베이스(Relational Database): 키(key)와 값(value)들의 간단한 관계를 테이블화시킨 데이터베이스
+    - SQL(Structured Query Language): 관계형 데이터베이스 관리 시스템의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어
+    - 쿼리(Query): 데이터베이스에 정보를 요청하는 것. 질의라고도 함
+        - 쿼리형식: CRUD(Create Read Update Delete)
+            - Create: 표에 데이터 생성
+            - Read: 표의 데이터 읽기
+            - Update: 새로운 데이터를 표에 업데이트
+            - Delete: 표의 데이터를 삭제
+    
+    - 데이터베이스 명령어
+        
+        **DDL**
+        
+        DDL (Data Definition Language, **데이터 정의어)** 데이터의 구조를 정의하는 데 사용하는 명령어 (생성, 변경, 삭제, 이름변경)등을 하기 위한 명령어
+        
+        - Create - 테이블을 생성한다.
+        - Alter - 테이블을 수정한다.
+        - Drop - 테이블을 삭제한다.
+        - Rename - 테이블의 이름을 변경한다.
+        - Truncate - 테이블 안에 있는 데이터를 전체 삭제한다. (Drop과 다르게 테이블은 유지한다.)
+        
+        **DML**
+        
+        DML (Data Manipulation Language, **데이터 조작어)** DB안에 있는 데이터를 조회하거나 데이터에 변형을 할 수 있는 명령어
+        
+        - Select - 데이터를 검색한다.
+        - Insert - 데이터를 생성한다.
+        - Update - 데이터를 수정한다.
+        - Delete - 데이터를 지운다.
+        
+        DDL과 DCL은 테이블에서 다루는 것과 데이터를 다루는 것에 차이점이 있음.
+        
+        **DCL**
+        
+        DCL (Data Control Language, **데이터 제어어)** DB에 접근하고 객체들을 사용할 수 있도록 하는 권한을 주고 회수하는 명령어
+        
+        - Grant - 권한을 부여한다.
+        - Revoke - 권한을 회수한다.
+        
+        **TCL**
+        
+        TCL (Transaction Control Language, **트랜젝션 제어어)** 트랜젝션이란 작업의 제어 단위. 데이터베이스가 많은 작업, 동시 작업을 하게 되는 경우 제어가 필요
+        
+        - Commit - 변경된 데이터를 테이블에 영구적으로 반영한다.
+        - Rollback - 데이터 변경을 취소하여 데이터를 이전 상태로 복구한다.
+        - Savepoint - 롤백은 이전의 데이터 변경을 취소한다면 savepoint는 저장 위치를 정의한 곳까지 돌아간다.
+  
+  - ### 시스템에서의 사용
+    - 사용자에게 판매할 컴퓨터 장비들을 DB에 저장하고 이 정보를 가져와 사용할 것임
+    - <판매할 컴퓨터 장비들을 저장한 DB 모습>
+        
+        
+        | 이름    | 가격    | 제조일자  |
+        | ---     | ---    | ---       |
+        | RTX3060 | 450000 | 210405    |
+        | i5-12400| 220000 | 211013    |
+
+    - 설치
+      - https://www.mysql.com/downloads/ MYSQL설치 주소
+
+    - 접속
+      ```
+      mysql -uroot -p
+      ```
+      나의 mysql 계정으로 접속한다.
+      ```
+      SHOW DATABASES;
+      ```
+      생성된 데이터베이스를 확인할 수 있다.
+      ```
+      use 데이터베이스이름;
+      ```
+      해당 데이터베이스에 접속한다.
+      ```
+      SHOW TABLES;
+      ```
+      테이블의 목록을 확인할 수 있다.
+
+    - 데이터베이스 생성하기
+      1. root 계정 접속 후
+      2. 명령어 입력`CREATE DATABASE 데이터베이스이름 default CHARACTER SET UTF8;`
+    
+      products_db 라는 데이터베이스를 생성하기`CREATE DATABASE products_db default CHARACTER SET UTF8;`
+
+    - 테이블 생성하기
+      1. todo_user 계정으로 접속`mysql -utodo_user -p`
+    
+      2. 데이터베이스 목록보기`show databases;`
+    
+      ```
+      +--------------------+
+      | Database           |
+      +--------------------+
+      | information_schema |
+      | products_db        |
+      +--------------------+
+      ```
+    
+      3. products_db라는 데이터베이스의 table 확인하기
+    
+      ```
+      mysql> use todo_db;
+      Database changed
+      mysql> show tables;
+      Empty set (0.01 sec)
+      ```
+    
+      4. table 추가하기
+    
+      ```
+      CREATE TABLE 테이블이름 (
+    	  컬럼명 데이터타입 ... ,
+       	  컬럼명 데이터타입 ... ,
+        	  ...
+              );
+      ```
+    
+    - products 라는 테이블 생성하기
+    
+      ```
+      CREATE TABLE products (
+          id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+          title VARCHAR(255) NOT NULL,
+          price INT(8) NOT NULL,
+          regdate DATETIME DEFAULT NOW(),
+          PRIMARY KEY (id)
+          );
+    
+      ```
+    
+      1. "id" 컬럼 생성
+          - 데이터타입 : BIGINT(20) UNSIGNED
+          - 제약조건 : NOT NULL (null값을 가질 수 없음)
+          - AUTO_INCREMENT : 1부터 자동으로 증가
+      2. "name" 컬럼 생성
+          - 데이터타입 : VARCHAR(100)
+          - 제약조건 : NOT NULL
+      3. "price" 컬럼 생성
+          - 데이터타입 : INT(8)
+          - 제약조건 : NOT NULL
+      4. "regdate" 컬럼 생성
+          - 데이터타입 :DATETIME(문자열 형식이며 YYYY-MM-DD HH:MM:SS 형식)
+          - default : now() 라는 내장함수 사용
+      5. 기본키는 "id"
+      
+  - 테이블 데이터 추가
+    
+    ```sql
+    INSERT into 테이블이름 (컬럼1, 컬럼2, ...) values (컬럼1에 넣을 데이터, 컬럼2에 넣을 데이터 ...);
+    ```
+        
+
 
   - 설명:
 
@@ -510,3 +685,5 @@
     shell> /bin/bash /opt/rabbitmq/rabbitmq-start-management.sh
 
 ## DFD
+
+[def]: https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2698423a-01f0-4ec6-b2db-664c1c7cecc7/Untitled.png
