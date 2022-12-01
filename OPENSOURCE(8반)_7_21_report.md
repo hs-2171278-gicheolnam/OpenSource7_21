@@ -595,6 +595,15 @@
       ```
     - **검색하기**
       - 인덱스화된 문서는 거의 실시간으로 검색할 수 있습니다. 다음 검색은 ```고객``` 인덱스에서 제니퍼라는 이름을 가진 모든 고객과 일치합니다.
+      ```
+      GET customer/_search
+      {
+        "query" : {
+          "match" : { "firstname": "Jennifer" }
+        }
+      }
+      ```
+      
 
 - ### Apache PredictionIO: 사용자 추천 오픈소스
 
