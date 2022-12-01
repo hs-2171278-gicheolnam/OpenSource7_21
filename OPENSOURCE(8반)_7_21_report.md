@@ -14,8 +14,6 @@
 
 ## 유사 서비스 분석
 
-
-
 ## 시스템 설계 내용 요약
 
 - 사용된 오픈소스 목록
@@ -32,20 +30,29 @@
   - < 오타 수정 오픈소스 >
     - 간단한 설명
   - < 검색 엔진 오픈소스 >
+
     - 간단한 설명
 
   - Apache PredictionIO: 사용자 추천 오픈소스
+
     - 오픈소스 설명: 개발자와 데이터 과학자가 기계 학습 작업을 위한 예측 엔진을 만들 수 있도록 최신 오픈소스 스택 위에 구축된 **오픈소스 기계 학습 서버입니다.**
     - 깃허브 링크: https://github.com/apache/predictionio.git
     - 라이선스: [Apache License 2.0](https://github.com/apache/predictionio/blob/develop/LICENSE.txt)
-  - < 데이터 시각화 오픈소스 >
-    - 간단한 설명
+
+  - Apache Zeppelin: 데이터 시각화 오픈소스
+
+    - 오픈소스 설명: Data 프레임워크/애플리케이션들 을 서로 조합하여 한 곳에서 분석코드 작성/실행/시각화/공유를 가능케 해주는 빅데이터 분석 도구입니다
+    - 깃허브 링크: https://github.com/apache/zeppelin
+    - 라이선스: [Apache License 2.0](https://github.com/apache/zeppelin/blob/master/LICENSE)
+
   - < 이미지 크롤링 오픈소스 >
+
     - 간단한 설명
+
   - RabbitMQ : 채팅 서비스 구현을 위한 오픈소스
     - rabbitMQ는 AMQP를 따르는 오픈소스 메시지 브로커 프로젝트입니다. 메시지 브로커라고 불리며, 메세지를 많은 사용자에게 전달하거나, 요청에 대한 처리 시간이 길 때, 요청을 다른 API에게 위임하고 빠른 응답을 할 때 많이 사용합니다.
     - 깃허브 링크 : https://github.com/rabbitmq
-    - 라이선스 : [Apache License 2.0, Mozilla Public License 2.0] (https://github.com/rabbitmq/osiris/blob/main/LICENSE-APACHE2, https://github.com/rabbitmq/osiris/blob/main/LICENSE-MPL-RabbitMQ)
+    - 라이선스 : [Apache License 2.0](https://github.com/rabbitmq/osiris/blob/main/LICENSE-APACHE2), [Mozilla Public License 2.0](https://github.com/rabbitmq/osiris/blob/main/LICENSE-MPL-RabbitMQ)
 
 ## 사용된 오픈소스에 대한 설명
 
@@ -72,7 +79,7 @@
 
     - React를 사용해 완전한 웹 서비스를 구축하기 위해 필요한 세부사항입니다.
       - 코드는 webpack과 같은 번들러를 사용하여 번들링되고, Babel과 같은 컴파일러를 사용해 변환되어야 합니다.
-      - 코드 분할과 같은 생산 최적화를 수행해야 합니다. 
+      - 코드 분할과 같은 생산 최적화를 수행해야 합니다.
       - 성능 및 SEO를 위해 일부 페이지를 정적으로 사전 렌더링할 수 있습니다.서버 측 렌더링이나 클라이언트 측 렌더링을 사용할 수도 있습니다.
       - React 앱을 데이터 저장소에 연결하기 위해 일부 서버측 코드를 작성해야할 수 있습니다.
       - 해당 문제점들은 Framework를 통해 해결할 수 있습니다.
@@ -345,10 +352,6 @@
 
   - 설명:
 
-- ### < 오타 수정 오픈소스 >
-
-  - 설명:
-
 - ### < 검색 엔진 오픈소스 >
 
   - 설명:
@@ -397,10 +400,10 @@
 
       5. 엔진을 서비스로 배포: 해당 단계에서 엔진은 **충분한 훈련**이 되어 있어야 합니다.
 
-         1. ```pio app new **어플이름**```을 실행하고 다운받은 템플릿의 engine.json파일 안에 ```appName```을 지정합니다. (여기에서 원하는대로 설정 가능)
-         2. ```pio build```를 실행하여 엔진을 업데이트합니다.
-         3. 교육 데이터로 예측 모델을 교육하기 위해 ```pio train```을 실행합니다.
-         4. ```pio deploy```를 실행해 엔진을 서비스로 배포합니다.
+         1. `pio app new **어플이름**`을 실행하고 다운받은 템플릿의 engine.json파일 안에 `appName`을 지정합니다. (여기에서 원하는대로 설정 가능)
+         2. `pio build`를 실행하여 엔진을 업데이트합니다.
+         3. 교육 데이터로 예측 모델을 교육하기 위해 `pio train`을 실행합니다.
+         4. `pio deploy`를 실행해 엔진을 서비스로 배포합니다.
 
          - 배포된 엔진은 기본적으로 포트 번호 8000을 수신합니다.
          - 어플리케이션은 REST 인터페이스를 통해 실시간으로 예측을 검색하는 쿼리를 보냅니다.
@@ -435,7 +438,7 @@
 
       - 이벤트 서버는 어플리케이션에서 이벤트 데이터를 수신합니다. 이 데이터는 엔진에서 예측 모델을 구축하기 위한 학습 데이터로 사용이 가능합니다.
 
-      - 이벤트 서버는 기본적으로 포트 번호로 7070을 사용하지만 이벤트 서버를 시작할 때 ``` --port```인수로 포트를 변경할 수 있습니다.
+      - 이벤트 서버는 기본적으로 포트 번호로 7070을 사용하지만 이벤트 서버를 시작할 때 ` --port`인수로 포트를 변경할 수 있습니다.
 
       - 이벤트 서버
 
@@ -487,13 +490,13 @@
     - 입력 쿼리: 사용자 아이디와 추천할 아이템의 수
     - 출력 예측 결과: 권장 항목 ID의 순위 목록
 
-    1. MySQL을 사용하는 경우 ```$ pio eventserver &```을 실행해 이벤트 서버를 실행합니다.
+    1. MySQL을 사용하는 경우 `$ pio eventserver &`을 실행해 이벤트 서버를 실행합니다.
 
        - 정상 실행된 경우 다음 코드 블럭이 실행됩니다.
 
          ```
          ...
-         
+
          (sleeping 5 seconds for all messages to show up...)
          Your system is all ready to go.
          ```
@@ -521,78 +524,113 @@
 
     5. 엔진을 서비스로 배포합니다.
 
+- ### < 데이터 시각화 오픈소스>
 
-- ### < 데이터 시각화 오픈소스 >
+  -Data 프레임워크/애플리케이션들 을 서로 조합하여 한 곳에서 분석코드 작성/실행/시각화/공유를 가능케 해주는 빅데이터 분석 도구입니다
 
-  - 설명:
+  - #### Zeppelin 과 데이터 분석 도구 생태계
+
+    - Zeppelin은 비교적 최근에 등장한 분석 도구로서 아파치 소프트웨어 재단의 후원을 받으며 개발이 되고 있습니다.
+    - 사용자들은 Zeppelin을 이용하여 Web에서 Python, Scala 등의 다양한 언어를 섞어가며 분석 코드를 짤 수 있고 이 결과를 바로 Graph로 시각화하여 볼 수 있습니다.
+    - 여기에 더해 Zeppelin은 넓어져 가는 빅데이터 분석 도구 시장의 다양한 니즈에 맞추기 위해서 Spark뿐만이 아닌 Livy, Cassandra, Lens, SQL 등등의 다른 데이터 분석 도구나 데이터베이스에 접근하여 쿼리하는 것을 쉽게 할 수 있는 확장 기능들을 지원한다.
+    - 오픈소스를 기반으로 빅데이터 분석 시스템을 구성하는 기업들은 다양한 기술 스택을 서로 엮어서 시스템을 구성하게 되는데 Zeppelin 하나만 있으면 이들 시스템의 각 요소에 자유롭게 접근하여 데이터를 다룰 수 있게 된 것이다.
+    - 확장성 때문에 후발주자임에도 매우 빠르게 여러 기업에서 사용되기 시작했고 널리 알려지게 된 것 이다.
+
+  - #### Zeppelin 의 구조
+    <img src="Zeppelin_Struct.png"  width="700" height="370">
+      - 위 사진과 같은 확장성은 Zeppelin이 Interpreter라는 플러그인 구조로 지원되는데 각 Interpreter는 Zeppelin의 Web Interface를 통해서 입력받은 분석 코드를 local 또는 원격에서 실행할 수 있다. 
+      - 예를 들어 Spark로 Map-Reduce하는 코드를 작성하고 실행을 누르면 Zeppelin 안에 설치된 Spark Interpreter가 이를 받아 Spark Master에 Client 라이브러리를 통해 코드를 보내고 그 실행 결과를 받아 다시 Web Interface에 보내준다. 또한 Bash로 쉘 스크립트를 짜면 Zeppelin 안에 탑재된 Shell Interpreter가 이를 받아 Zeppelin이 설치된 서버에서 shell script를 실행하고 그 결과를 Web Interface에 보내주는 형태이다. 
+      - Zeppelin 자체가 데이터 분석 처리를 하지 않기 때문에 분석 시스템이나 데이터베이스 등이 미리 구성되어 있어야 하고, Zeppelin과 이들 시스템을 연결해주는 작업을 해야 한다는 어려움이 있지만 한번 연결해 두면 같은 Notebook에서 Pyspark와 SparkR을 쓰거나 Cassandra DB 등의 데이터베이스까지 다루는 일을 Zeppelin 내에서 편하게 할 수 있는 장점이 있다.
+  - #### Zeppelin 기능
+    - ##### 분석코드 작성 / 실행 / 시각화
+    <img src="Zeppelin_fun.png"  width="700" height="370">
+    - Hadoop과 Spark는 데이터를 불러들이고, 가공 및 변환하고 분석 알고리즘을돌리는 과정을 코드로 작성해야 한다.
+    - 결과를 여러 가지의 Graph를 통해서 시각적으로보여주는 일 또한 해야 하는데 Zeppelin에선 이러한 작업을 단일 Notebook 안에서 할 수 있다. 그것도 자신이 선호하는 Framework 또는 언어를 선택할 수 있다.
+    - 결과를 %sql로 정리한 후에Paragraph의 우측 상단의 버튼을 클릭하여 결과를 막대/선/파이 차트 등으로 확인할 수 있다. 주의할점은 Paragraph는 위에서 아래로, 좌에서 우로 실행되므로 이 부분만 주의한다면 다양한 기술 스택들을 서로 엮어 분석코드를 만들 수 있다.
+  - ##### Zeppelin의 강력한 장점
+    - 협업: Google Apps를 보면 여러 사람이 같이 동시에 Google Sheet나 Google Document 등을 편집할 수 있는데 Zeppelin도 WebSocket을 활용하여 같은 Notebook을 여러 사람이 동시에 편집할 수 있는 기능을 제공하고있다. 한 사람이 분석 코드를 짜면 다른 사람이 그 결과를 원격에서 실시간으로 바로 확인할 수 있다.
+    - 확장성: 확장성은 Interpreter라는 플러그인 구조로 지원합니다. 각 Interpreter들은 Zeppelin의 Web Interface를 통해서 입력받은 분석 코드를 local 또는 원격에서 실행 가능합니다.
+  - ##### 데이터 바인딩
+    - Zeppelin은 Angular JS를 활용하여 Web Interface가 만들어졌기 때문에 Angular JS의장점인 Data Binding 기능을 응용한 보고서 또는 Dashboard를 만들 수 있다. 예를 들어 학교에서 학생들의 성적을 분석하는 보고서를 만들 때 이 보고서에는 50점 이상 학생들의 분포만 보여주는 그래프가 포함되어 있고 이 그래프를 만든 이는 코드를 고쳐 50점을 60점으로 수정한 그래프를 쉽게 만들 수 있을 것이다. 하지만 보고서를 보는 사람이 코드를 잘 모르는데 40점이나 70점 등으로 이리저리 확인해서 보고 싶다면?Zeppelin에선 이 기준점수를 TextBox로 받을 수 있도록 Binding을 걸 수 있다. 이렇게 하면 코드를 모르는 사람도 보고서에서 점수만 고치면 그래프가 자동으로 변경된 값을 반영하여 새로 그려지므로 좀 더 사용자 친화적으로 보고서가 만들어진다. Binding뿐만 아니라,Angular 인터프리터를 사용하여 AngularJS가 가미된 HTML코드를 실행하면 Zeppelin 소스를 수정하지 않아도 여러 GUI를 만들어 낼 수 있어 다양한 Dashboard를 구성할 수 있다.
+  - #### 공유
+    - IPython등은 데이터 분석/연구 결과를 정리해서 보여주기 위한 연구 노트 같은 기능제공에 초점이 맞춰져 있지만, Zeppelin은 초기부터 분석 결과를 Dashboard 형태로 여러 사람이 공유할 수 있게 하도록 하는 데 초점이 맞춰져 있다. Paragraph 우측 상단에 Export/Share 버튼을 사용하면 그 Paragraph를 IFrame을 이용하여 다른 Website에 Embedded 시켜줄 수 있다. 또한, %html, %md (markdown)등의 자바스크립트 삽입 및 문서 스타일링도 지원하기 때문에 자신의 입맛에 맞게 버튼을 달거나 분석 결과를 다른 모양으로 표현하는 것도 가능하다. 이런 기본 기능들이 맘에 안 든다면 새로운 플러그인을 작성하거나 D3.js를 건드려서 나에게 맞는 형태로 수정해줄 수도 있다. 물론 다소 빌드가 까다롭기 때문에 이 부분은 현재는 쉽진 않지만, 현재 시험적용 중인 Helium Application 기능이 안정화 되면좀 더 확장성이 좋아질 것이라 기대한다.
+  -
 
 - ### < 이미지 크롤링 오픈소스 >
 
   - 설명:
 
 - ### RabbitMQ : AMQP를 따르는 오픈소스 메시지 브로커 시스템
+
   - RabbitMQ는 Erlang으로 AMQP를 구현한 메시지 브로커 시스템입니다.
     -Erlang : 동시성 및 분산 스스템을 개발하는 데 주로 사용되는 다목적 프로그래밍 언어입니다.
+
     - #### AMQP(Advanced Message Queuing Protocol)
+
       - 클라이언트가 메시지 미들웨어 브로커와 통신할 수 있게 해주는 메세징 프로토콜입니다.
-      
+
                Broker
-	    
-           Producers -> [Exchange -- Binding --> Queue] -> Consumers
-      
+
+        Producers -> [Exchange -- Binding --> Queue] -> Consumers
+
       - 메시지를 발행하는 Producer에서 Broker의 Exchange로 메시지를 전달하면, Binding이라는 규칙에 의해 연결된 Queue로 메시지가 복사됩니다.
       - 메시지를 받아가는 Consumer에서는 Broker의 Queue를 통해 메시지를 받아가서 처리합니다.
-       - AMQP에는 네트워크에 문제가 있거나, 메시지를 처리하지 못하는 경우를 대비해 2가지 수신 확인 모델을 갖추고 있습니다.
-      
-        - 하나는 Consumer는 메시지를 받으면 명시적으로 broker에게 통지하고, 브로커는 이 알림을 받았을 때만 Queue에서 메시지를 삭제합니다. 다른 하나는 Broker가 메시지를 전달하면 자동으로 삭제하는 방식입니다.
-      
-        - 모든 메시지는 Queue로 직접 전달되지 않고, 반드시 Exchange에서 먼저 받습니. 그리고 Exchange Type과 Binding 규칙에 따라 적절한 Queue로 전달됩니다.
-          - Name : Exchange 이름
-          - Type : 메시지 전달 방식
-         - Direct Exchange
-              - Fanout Exchange
-         - Topic Exchange
-         - Headers Exchange
-         - Durability : 브로커가 재시작될 때 남아있는지 여부(durable, transient)
-         - Auto-delete : 마지막 Queue 연결이 해제되면 삭제
-   - #### Bindings
-    - 생성된 Exchange에는 전달받은 메시지를 원하는 Queue로 전달하기 위해 Bindings이라는 규칙을 정의할 수 있습니다.
-     - 간단하게 목적지 Queue 이름만으로도 Binding을 추가할 수 있고, 일부 Exchange Type에 따라 routing key를 지정해서 메세지를 필터링한 후 지정한 Queue로 보내도록 정의할 수 있습니다.
-   - #### Exchange Type
-    - Direct Exchange
-      - 메시지에 포함된 routing key를 기반으로 Queue에 메시지를 전달합니다.
-      - Exchagne로 전달된 메세지의 routing key가 일치하지 않는 경우 메시지를 무시합니다.
-      - Default Exchange는 이름이 없는 Direct Exchange의 한 형태로, 전달될 목적지 Queue 이름과 동일한 routing key를 부여합니다.
-  
-    - Fanout Exchange
-      - routing key와 관계없이 연결된 모든 Queue에 동일한 메시지를 전달합니다.
-  
-    - Topic Exchange
-      - routing key 전체가 일치하거나 일부 패턴과 일치하는 모든 Queue로 메시지가 전달됩니다.
-      - 여러 Consumer에서 메시지 형태에 따라 선택적으로 수신해야하는 경우와 같이 다양한 publish/subscribe 패턴 구현에 활용할 수 있습니다.
-      - Topic Exchange에서 사용하는 binding key는 점(.)으로 구분된 단어를 조합해서 정의합니다.
-      - *와 #을 이용하여 와일드 카드를 표현할 수 있으며, *는 단어 하나 일치, #는 0 또는 1개 이상의 단어 일치를 의미합니다.
-       ex)*.orange.* ← quick.orange.rabbit, lazy.orange.elephant
-          *.*.rabbit ← quick.orange.rabbit, lazy.pink.rabbit
-          lazy.# ← lazy.orange.elephant, lazy.pink.rabbit
-  
-    - Headers Exchange
-      - 메시지 헤더를 통해 binding key만을 사용하는 것보다 더 다양한 속성을 사용할 수 있습니다.
-      - Header Exchange를 사용하면 binding key는 무시되고, 헤더 값이 binding 시 지정된 값과 같은 경우에만 일치하는 것으로 간주됩니다.
-   - #### Queue
-    - Producer들이 발송한 메세지들이 Consumer가 소비하기 전까지 보관되는 장소입니다.
-    - Consumer 어플리케이션은 Queue를 통해 메시지를 가져갑니다. Queue는 반드시 미리 정의해야 사용할 수 있습니다.
-    - 같은 이름, 같은 설정으로 Queue 생성시 에러 없이 기존 Queue에 연결됩니다.
-      - Name : ‘.’, ‘amq.’로 시작하는 queue 이름은 예약되어 사용할 수 없다.
-      - Durability : durable은 브로커가 재시작되어도 디스크에 저장되어 남아 있고, transient으로 설정하면 브로커가 재시작되면 사라진다. 단, Queue에 저장되는 메시지는 내구성을 갖지 않는다.
-      - Auto delete : 마지막 Consumer가 구독을 끝내는 경우 자동으로 삭제
-      - Arguments : 메시지 TTL, Max Length 같은 추가 기능을 명시
-   - #### Channels
-    - RabbitMQ는 Channel이라는 개념을 통해 하나의 TCP 연결을 공유해서 사용할 수 있는 기능을 제공합니다.
-    - 하지만 멀티 스레드. 멀티 프로세스를 사용하는 작업에서는 각각 별도의 Channel을 열고 사용해야 하는 것이 좋습니다.
+      - AMQP에는 네트워크에 문제가 있거나, 메시지를 처리하지 못하는 경우를 대비해 2가지 수신 확인 모델을 갖추고 있습니다.
+
+      - 하나는 Consumer는 메시지를 받으면 명시적으로 broker에게 통지하고, 브로커는 이 알림을 받았을 때만 Queue에서 메시지를 삭제합니다. 다른 하나는 Broker가 메시지를 전달하면 자동으로 삭제하는 방식입니다.
+
+      - 모든 메시지는 Queue로 직접 전달되지 않고, 반드시 Exchange에서 먼저 받습니. 그리고 Exchange Type과 Binding 규칙에 따라 적절한 Queue로 전달됩니다.
+        - Name : Exchange 이름
+        - Type : 메시지 전달 방식
+      - Direct Exchange
+        - Fanout Exchange
+      - Topic Exchange
+      - Headers Exchange
+      - Durability : 브로커가 재시작될 때 남아있는지 여부(durable, transient)
+      - Auto-delete : 마지막 Queue 연결이 해제되면 삭제
+
+  - #### Bindings
+  - 생성된 Exchange에는 전달받은 메시지를 원하는 Queue로 전달하기 위해 Bindings이라는 규칙을 정의할 수 있습니다.
+  - 간단하게 목적지 Queue 이름만으로도 Binding을 추가할 수 있고, 일부 Exchange Type에 따라 routing key를 지정해서 메세지를 필터링한 후 지정한 Queue로 보내도록 정의할 수 있습니다.
+  - #### Exchange Type
+  - Direct Exchange
+
+    - 메시지에 포함된 routing key를 기반으로 Queue에 메시지를 전달합니다.
+    - Exchagne로 전달된 메세지의 routing key가 일치하지 않는 경우 메시지를 무시합니다.
+    - Default Exchange는 이름이 없는 Direct Exchange의 한 형태로, 전달될 목적지 Queue 이름과 동일한 routing key를 부여합니다.
+
+  - Fanout Exchange
+
+    - routing key와 관계없이 연결된 모든 Queue에 동일한 메시지를 전달합니다.
+
+  - Topic Exchange
+
+    - routing key 전체가 일치하거나 일부 패턴과 일치하는 모든 Queue로 메시지가 전달됩니다.
+    - 여러 Consumer에서 메시지 형태에 따라 선택적으로 수신해야하는 경우와 같이 다양한 publish/subscribe 패턴 구현에 활용할 수 있습니다.
+    - Topic Exchange에서 사용하는 binding key는 점(.)으로 구분된 단어를 조합해서 정의합니다.
+    - *와 #을 이용하여 와일드 카드를 표현할 수 있으며, *는 단어 하나 일치, #는 0 또는 1개 이상의 단어 일치를 의미합니다.
+      ex)_.orange._ ← quick.orange.rabbit, lazy.orange.elephant
+      _._.rabbit ← quick.orange.rabbit, lazy.pink.rabbit
+      lazy.# ← lazy.orange.elephant, lazy.pink.rabbit
+
+  - Headers Exchange
+    - 메시지 헤더를 통해 binding key만을 사용하는 것보다 더 다양한 속성을 사용할 수 있습니다.
+    - Header Exchange를 사용하면 binding key는 무시되고, 헤더 값이 binding 시 지정된 값과 같은 경우에만 일치하는 것으로 간주됩니다.
+  - #### Queue
+  - Producer들이 발송한 메세지들이 Consumer가 소비하기 전까지 보관되는 장소입니다.
+  - Consumer 어플리케이션은 Queue를 통해 메시지를 가져갑니다. Queue는 반드시 미리 정의해야 사용할 수 있습니다.
+  - 같은 이름, 같은 설정으로 Queue 생성시 에러 없이 기존 Queue에 연결됩니다.
+    - Name : ‘.’, ‘amq.’로 시작하는 queue 이름은 예약되어 사용할 수 없다.
+    - Durability : durable은 브로커가 재시작되어도 디스크에 저장되어 남아 있고, transient으로 설정하면 브로커가 재시작되면 사라진다. 단, Queue에 저장되는 메시지는 내구성을 갖지 않는다.
+    - Auto delete : 마지막 Consumer가 구독을 끝내는 경우 자동으로 삭제
+    - Arguments : 메시지 TTL, Max Length 같은 추가 기능을 명시
+  - #### Channels
+  - RabbitMQ는 Channel이라는 개념을 통해 하나의 TCP 연결을 공유해서 사용할 수 있는 기능을 제공합니다.
+  - 하지만 멀티 스레드. 멀티 프로세스를 사용하는 작업에서는 각각 별도의 Channel을 열고 사용해야 하는 것이 좋습니다.
   - #### Virtual Hosts
     - 하나의 Broker에서 운영 환경(ex. live, dev)에 따라 Users, Exchange, Queue 등을 각각 사용할 수 있는 Vhosts 컨셉을 갖고 있습니다.
   - #### RabbitMQ의 특징
+
     - 기본적으로 메시지 큐(Message Queue) 서버이기 때문에 메시지가 누락될 위험이 거의 없습니다. 설령 연결이 끊어졌다 하더라도 다시 연결하는 순간 큐에 저장된 메시지를 구독할 수 있으며, 순서 역시 보장됩니다.
     - 내결함성(Fault tolerance)이 극도로 뛰어납니다. 이는 RabbitMQ의 특징이라기보다 Erlang 언어의 특징이기도 합니다.
     - 외부 의존성이 없습니다. 내장된 Mnesia 및 ETS, DETS 모두 강력한 성능과 안정성을 자랑합니다. 별도의 외부 의존성 없이 구동, 운용이 가능한 점은 큰 장점을 가집니다.
@@ -600,8 +638,8 @@
     - 수평적 확장(Horizontal Scale Out)이 쉽습니다. 여러 RabbitMQ 서버를 클러스터로 묶어버릴 수도 있습니다.
     - 뛰어난 성능을 보여줍니다. 초당 수만 건의 메시지는 큰 문제없이 전송이 가능합니다. Apache Kafka 정도의 성능은 아니지만 실사용에는 문제가 없습니다.
     - WebSocket/STOMP 등의 웹 기반 소켓 프로토콜 역시 지원합니다.
-    - RabbitMQ 는 다양한 언어로 개발 라이브러리를 제공합니다. 
-  
+    - RabbitMQ 는 다양한 언어로 개발 라이브러리를 제공합니다.
+
   - #### RabbitMQ의 양방향 통신 과정
     1. 클라이언트와 서버는 API 서버와 동기화(Synchronous)된 요청과 응답을 주고 받습니다.
     2. 클라이언트는 RabbitMQ 서버와 AMQP 연결을 맺습니다.
@@ -612,30 +650,34 @@
     - Message와 Queue 데이터를 보존하기 위해서 Queue 생성시 Durable 옵션에 true 주고 생성해야 합니다.
     - Producer가 메시지 발송시 PERSISTENT_TEXT_PLAIN 옵션을 주어야 합니다.
   - #### Prefetch Count
+
     - 하나의 Queue에 여러 Consumer가 존재할 경우, Queue는 기본적으로 Round-Robin 방식으로 메세지를 분배합니다.
       - Round-Robin : 프로세스들 사이에 우선순위를 두지 않고, 순서대로 시간단위로 할당하는 방식의 알고리즘입니다.
     - Consumer가 2개인 상황에서 홀수번째 메세지는 처리 시간이 짧고, 짝수번째 메세지는 처리 시간이 매우 긴 경우, 계속해서 하나의 Consumer만 일을 하게 되는 상황이 발생할 수 있습니다
     - 이를 예방하기 위해, prefetch count를 1로 설정해 두면, 하나의 메세지가 처리되기 전(Ack를 보내기 전)에는 새로운 메세지를 받지 않게 되므로, 작업을 분산시킬 수 있습니다.
-  
+
   - #### RabbitMQ 서버 생성
-   - 콘솔 > Server > Server 메뉴에서 RabbitMQ 서버 이미지를 선택하여 생성할 수 있습니다.
-   - 원하는 사양의 서버를 생성하고 필요에 따라 스토리지를 추가합니다.
-   - 월 요금제와 시간 요금제로 청구되며, 서버를 생성한 후 접속 환경을 설정하여 이용할 수 있습니다.
-   - RabbitMQ를 이용하기 위해서 공인 IP 주소를 신청하고 ACG 설정에서 5672, 15672(Management UI Plugin 사용 시) 포트를 추가해야 합니다.
-   - RabbitMQ의 Management UI를 사용하지 않으며, RabbitMQ를 VM 간에서만 이용하는 경우에는 공인 IP 주소 할당 없이 <비공인 IP>:5672 주소를 통해서 사용할 수 있습니다.
+  - 콘솔 > Server > Server 메뉴에서 RabbitMQ 서버 이미지를 선택하여 생성할 수 있습니다.
+  - 원하는 사양의 서버를 생성하고 필요에 따라 스토리지를 추가합니다.
+  - 월 요금제와 시간 요금제로 청구되며, 서버를 생성한 후 접속 환경을 설정하여 이용할 수 있습니다.
+  - RabbitMQ를 이용하기 위해서 공인 IP 주소를 신청하고 ACG 설정에서 5672, 15672(Management UI Plugin 사용 시) 포트를 추가해야 합니다.
+  - RabbitMQ의 Management UI를 사용하지 않으며, RabbitMQ를 VM 간에서만 이용하는 경우에는 공인 IP 주소 할당 없이 <비공인 IP>:5672 주소를 통해서 사용할 수 있습니다.
   - #### RabbitMQ 구현
-   1. 서버 생성
-   2. 공인 IP 신청
-   3. 포트포워딩 설정
-   4. ACG 설정
-   5. 터미널 프로그램 접속
-   6. 초기 패스워드 확인
-   7. RabbitMQ 접속
-  
+
+  1.  서버 생성
+  2.  공인 IP 신청
+  3.  포트포워딩 설정
+  4.  ACG 설정
+  5.  터미널 프로그램 접속
+  6.  초기 패스워드 확인
+  7.  RabbitMQ 접속
+
   - 실행 방법
-   ```
-    $ systemctl start rabbitmq-server
-   ```
+
+  ```
+   $ systemctl start rabbitmq-server
+  ```
+
   - 새로운 user 추가 및 password 설정
     ```
     $ /bin/bash /opt/rabbitmq/rabbitmq-add-user.sh
@@ -645,45 +687,50 @@
     Creating user "myuser"
     Setting tags for user "myuser" to [administrator]
     Setting permissions for user "myuser" in vhost "/"
+    ```
   - user 삭제
-  
+
   ```
   $ /bin/bash /opt/rabbitmq/rabbitmq-delete-user.sh
   type your username to delete: admin
   Deleting user "admin"
   ```
-  
-    # output message
+
+  # output message
+
   - password 변경
-  
+
     ```
     $ rabbitmqctl change_password <username> <newpassword>
     ```
-  
+
   - RabbitMQ 프로세스 기동
     - systemctl를 사용하여 프로세스를 시작하는 경우
-  
+
   ```
   shell> systemctl start rabbitmq-server
   ```
-  
+
   - RabbitMQ 프로세스 중지
-  
+
   ```
   shell> systemctl stop rabbitmq-server
   ```
-  
+
   - RabbitMQ 프로세스 확인
-  
+
   ```
   shell> rabbitmqctl status
   ```
-  
+
   - RabbitMQ Management UI Plugin 시작하기
-  
+
     ```
     shell> /bin/bash /opt/rabbitmq/rabbitmq-start-management.sh
+    ```
 
 ## DFD
 
-[def]: https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2698423a-01f0-4ec6-b2db-664c1c7cecc7/Untitled.png
+
+<img src="DFD.png"  width="700" height="370">
+
