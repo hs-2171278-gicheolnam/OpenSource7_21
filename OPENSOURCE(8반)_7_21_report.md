@@ -532,6 +532,18 @@
     - 검색 백엔드
     - 어플레케이션 모니터링
     - 엔드포인트 보안
+  - #### 엘라스틱 서치의 특징
+    -**실시간 분석 (real-time)**
+      - Elasticsearch의 가장 큰 특징 중 하나는 실시간(real-time) 분석 시스템 입니다. 현재 대용량 데이터 분석에 가장 널리 사용되고 있는 것은 하둡(Hadoop) 플랫폼 위에서 실행되는 Pig, Hive와 같은 다양한 맵 리듀서(Map reducer) 들입니다. 하둡은 기본적으로 배치 기반의 분석 시스템으로 분석에 사용될 소스 데이터, 분석을 수행 할 프로그램을 올려 놓고 분석을 실행하여 결과 셋이 나오도록 하는 하나의 루틴으로 실행됩니다.
+      - Elasticsearch는 하둡 시스템과 달리 Elasticsearch 클러스터가 실행되고 있는 동안에는 계속해서 데이터가 입력 (검색엔진에서는 색인 – indexing 이라고 표현합니다) 되고, 그와 동시에 실시간에 가까운 (near real-time) 속도로 색인된 데이터의 검색, 집계가 가능합니다.
+    - **전문(full text) 검색 엔진**
+      - 정보검색 라이브러리인 루씬은 기본적으로 역파일 색인(inverted file index)라는 구조로 데이터를 저장합니다. 루씬을 사용하고 있는 Elasticsearch도 마찬가지로 색인된 모든 데이터를 역파일 색인 구조로 저장하여 가공된 텍스트를 검색합니다.. 이런 특성을 전문(full text) 검색이라고 합니다.
+    - JSON 문서 기반 Elasticsearch는 내부적으로는 역파일 색인 구조로 데이터를 저장하고 있으나, 사용자의 관점에서는 JSON 형식으로 데이터를 전달합니다. JSON형식은 간결하고 개발자들이 다루기 편한 구조로 되어 있어 색인 할 대상 문서를 가공 하거나 다른 클라이언트 프로그램과 연동하기에 용이합니다.
+  또한 key-value 형식이 아닌 문서 기반으로 되어 있기에 복합적인 정보를 포함하는 형식의 문서를 있는 그대로 저장이 가능하며 사용자가 직관적으로 이해하고 사용할 수 있습니다. Elasticsearch에서 질의에 사용되는 쿼리문이나 쿼리에 대한 결과도 모두 JSON 형식으로 전달되고 리턴됩니다.
+    - 다만 JSON이 Elasticsearch가 지원하는 유일한 형식이기 사전에 입력할 데이터를 JSON 형식으로 가공하는 것이 필요합니다. CSV, Apache log, syslog등과 같이 널리 사용되는 형식들은 Logstash에서 변환을 지원하고 있습니다.
+  - **멀티테넌시 (multitenancy) **
+    -Elasticsearch의 데이터들은 인덱스(Index) 라는 논리적인 집합 단위로 구성되며 서로 다른 저장소에 분산되어 저장됩니다. 서로 다른 인덱스들을 별도의 커넥션 없이 하나의 질의로 묶어서 검색하고, 검색 결과들을 하나의 출력으로 도출할 수 있는데, Elasticsearch의 이러한 특징을 멀티테넌시 라고 합니다.
+    
   - #### 시작하는 법
     - 엘라스틱서치 설정하는 가장 간단한 방법은 엘라스틱 클라우드에서 엘라스틱 서치서비스를 사용하여 중앙 관리 배포를 생성하는 것입니다.
     - 엘라스틱서치를 직접 설치하고 관리하려는 경우 elastic.co/downloads/elasticsearch에서 최신 버전을 다운로드할 수 있습니다.
@@ -550,6 +562,16 @@
       - 1.{version}을 실행하려는 엘라스틱서치의 버전으로 바꿉니다.
     - 엘라스틱서치를 처음 시작하면 생성된 엘라스틱 사용자 비밀번호와 Kibana 등록 토큰이 터미널에 출력됩니다.
     - 3. 생성된 암호 및 등록 토큰을 복사하여 안전한 위치에 저장합니다. 이러한 값은 엘라스틱서치를 처음 시작할 때만 표시됩니다. 이것을 사용하여 엘라스틱서치 클러스터에 Kibana를 등록하고 로그인합니다.
+    
+  - **키바나**
+    - Kibana는 Elasticsearch를 가장 쉽게 시각화 할 수 있는 도구입니다. 엘라스틱 서치와 마찬가지로 **Elastic license**를 라이센스로 사용합니다. 검색, 그리고 aggregation의 집계 기능을 이용해 Elasticsearch로 부터 문서, 집계 결과 등을 불러와 웹 도구로 시각화를 합니다. Discover, Visualize, Dashboard 3개의 기본 메뉴와 다양한 App 들로 구성되어 있고, 플러그인을 통해 App의 설치가 가능합니다.
+    - Discover
+    -Discover는 Elasticsearch에 색인된 소스 데이터들의 검색을 위한 메뉴입니다. 검색 창에 질의문을 통해 데이터를 간편하게 검색, 필터링 할 수 있으며, 검색된 데이터의 원본 문서를 확인하거나 보고 싶은 필드만 선택해서 테이블 형태로 조회가 가능합니다. 시계열(time series) 기반의 로그 데이터인 경우 시간 히스토그램 그래프를 통해 시간대별 로그 수도 표시됩니다.
+    - Visualize
+    - Visualize는 aggregation 집계 기능을 통해 조회된 데이터의 통계를 다양한 차트로 표현할 수 있는 패널을 만드는 메뉴입니다. 영역차트, 바차트, 파이차트, 라인차트 등 다양한 시각화 도구들의 사용이 가능하며 여기서 만들어진 패널들을 조합해서 대시보드를 만들게 됩니다.
+    - Dashboard
+    - Visualize 메뉴에서 만들어진 시각화 도구들을 조합해서 대시보드 화면을 만들고 저장, 불러오기 등을 할 수 있는 메뉴입니다. 다른 메뉴들과 마찬가지로 검색 창에 쿼리를 입력하거나 시각화 도구들을 클릭해서 조회할 데이터들의 필터링이 가능하고, URL로 대시보드를 다른 사람들과 공유하거나 json 형식으로 내보내고 불러오기 등이 가능합니다.
+    
   - **kibana 시작하는법**
     - Kibana를 사용하면 Elastic 검색에 쉽게 요청을 보내고 대화식으로 데이터를 분석, 시각화 및 관리할 수 있습니다.
       - 1.새 터미널 세션에서 Kibana를 시작하고 엘라스틱서치 컨테이너에 연결합니다.
@@ -563,46 +585,127 @@
       - A.엘라스틱서치를 시작할 때 복사한 등록 토큰을 붙여넣고 버튼을 클릭하여 Kibana 인스턴스를 엘라스틱서치와 연결합니다.
       - B.엘라스틱서치를 시작할 때 생성된 암호로 Kibana에 Elastic 사용자로 로그인합니다.
       
-    - **테이터 추가하기**
-      - REST API를 통해 JSON 개체(문서)를 전송하여 Elast search에 데이터를 인덱싱합니다. 텍스트, 숫자 데이터 또는 지리공간 데이터가 정형이든 비정형이든 관계없이 Elastic search는 빠른 검색을 지원하는 방식으로 효율적으로 저장하고 인덱싱합니다.
-      
-      - 로그 및 메트릭과 같은 타임스탬프가 지정된 데이터의 경우 일반적으로 여러 개의 자동 생성 백업 인덱스로 구성된 데이터 스트림에 문서를 추가합니다.
-      
-      - 색인에 단일 문서를 추가하려면 색인을 대상으로 하는 HTTP 게시 요청을 제출하십시오.
-      ```
-      POST /customer/_doc/1
-      {
-      "firstname": "Jennifer",
-      "lastname": "Walters"
-      }
-      ```
-      - 이 요청은 ```고객``` 색인이 없는 경우 자동으로 작성되고 ID가 1인 새 문서를 추가하며 ```이름``` 및 ```성``` 필드를 저장하고 색인화합니다.
-      - 새 문서는 클러스터의 모든 노드에서 즉시 사용할 수 있습니다. 문서 ID를 지정하는 GET 요청으로 검색할 수 있습니다.
-      ```
-      GET /customer/_doc/1
-      ```
-      - 하나의 요청에 여러 문서를 추가하려면 ```_bulk``` API를 사용하십시오. 대량 데이터는 줄바꿈으로 구분된 JSON(NDJSON)이어야 합니다. 각 줄은 마지막 줄을 포함하여 새 줄 문자(```\n```)로 끝나야 합니다.
-      ```
-      PUT customer/_bulk
-      { "create": { } }
-      { "firstname": "Monica","lastname":"Rambeau"}
-      { "create": { } }
-      { "firstname": "Carol","lastname":"Danvers"}
-      { "create": { } }
-      { "firstname": "Wanda","lastname":"Maximoff"}
-      { "create": { } }
-      { "firstname": "Jennifer","lastname":"Takeda"}
-      ```
-    - **검색하기**
-      - 인덱스화된 문서는 거의 실시간으로 검색할 수 있습니다. 다음 검색은 ```고객``` 인덱스에서 제니퍼라는 이름을 가진 모든 고객과 일치합니다.
-      ```
-      GET customer/_search
-      {
-        "query" : {
-          "match" : { "firstname": "Jennifer" }
-        }
-      }
-      ```
+  - **엘라스틱 서치의 정보 입력, 조회, 수정, 삭제 방법**
+    - Elasticsearch에서는 단일 도큐먼트별로 고유한 URL을 갖습니다. 도큐먼트에 접근하는 URL은 ```http://<호스트>:<포트>/<인덱스>/_doc/<도큐먼트 id> ```구조로 되어 있습니다. 6.x 이전 까지는 ```http://<호스트>:<포트>/<인덱스>/<도큐먼트 타입>/<도큐먼트 id>```구조였으나, Elasticsearch 7.0 부터는 도큐먼트 타입 개념이 사라지고 대신 고정자 _doc 으로 접근해야 합니다. 다음은 curl 도구를 이용해서 my_index 인덱스에 도큐먼트 id가 1인 데이터를 입력하는 예제입니다.
+    ```
+    $ curl -XPUT "http://localhost:9200/my_index/_doc/1" -H 'Content-Type: application/json' -d'
+    {
+      "name": "Jongmin Kim",
+      "message": "안녕하세요 Elasticsearch"
+    }'
+    {"_index":"my_index","_type":"_doc","_id":"1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no": 0,"_primary_term":1}
+  
+    ```
+    - 이후부터는 elasticsearch의 REST 명령들은 Kibana의 Dev Tools 에서 입력하는 형식으로 설명하도록 하겠습니다. 입력은 reqest 탭, 그리고 응답은 response 탭에 표기하도록 하겠습니다.
+  
+    - 입력 (PUT)
+    - 데이터 입력을 할 때는 PUT 메서드를 이용합니다. 다음은 Kibana 에서 my_index 인덱스에 도큐먼트 id가 1인 데이터를 입력하는 예제입니다.
+     ```
+     - 최초입력
+     PUT my_index/_doc/1
+     {
+       "name":"Jongmin Kim",
+       "message":"안녕하세요 Elasticsearch"
+     }
+     ```
+     
+     ```
+     - 결과
+    {
+      "_index" : "my_index",
+      "_type" : "_doc",
+      "_id" : "1",
+      "_version" : 1,
+      "result" : "created",
+      "_shards" : {
+        "total" : 2,
+        "successful" : 1,
+        "failed" : 0
+      },
+      "_seq_no" : 0,
+      "_primary_term" : 1
+    }
+    ```
+    - 처음으로 도큐먼트를 입력하면 결과에 "result" : "created" 로 표시가 됩니다. 동일한 URL에 다른 내용의 도큐먼트를 다시 입력하게 되면 기존 도큐먼트는 삭제되고 새로운 도큐먼트로 덮어씌워지게 됩니다. 이 때는 결과에 created가 아닌 updated가 표시됩니다.
+     ```
+     - 재입력
+     PUT my_index/_create/1
+    {
+      "name":"Jongmin Kim",
+      "message":"안녕하세요 Elasticsearch"
+    }
+    ```
+    
+    ```
+    - 재입력 결과
+    {
+      "_index" : "my_index",
+      "_type" : "_doc",
+      "_id" : "1",
+      "_version" : 2,
+      "result" : "updated",
+      "_shards" : {
+        "total" : 2,
+        "successful" : 2,
+        "failed" : 0
+  	},
+	"_seq_no" : 1,
+	"_primary_term" : 1
+	}
+	```
+	- 실수로 기존 도큐먼트가 덮어씌워지는 것을 방지하기 위해서는 입력 명령에 _doc 대신 _create 를 사용해서 새로운 도큐먼트의 입력만 허용하는 것이 가능합니다.
+	 
+    - 조회 (GET)
+      - GET 메서드로 가져올 도큐먼트의 URL을 입력하면 도큐먼트의 내용을 가져옵니다. 다양한 정보가 함께 표시되며 문서의 내용은 _source 항목에 나타납니다.
+	```
+	- 도큐먼트 조회
+	GET my_index/_doc/1
+	```
+	
+	```
+	- 도큐먼트 조회결과
+	{
+ 	 "_index" : "my_index",
+ 	 "_type" : "_doc",
+ 	 "_id" : "1",
+ 	 "_version" : 2,
+ 	 "_seq_no" : 1,
+ 	 "_primary_term" : 1,
+ 	 "found" : true,
+ 	 "_source" : {
+ 	   "name" : "Jongmin Kim",
+ 	   "message" : "안녕하세요 Elasticsearch"
+ 	 }
+	}
+	```
+    - 수정 (POST)
+    - POST 메서드는 PUT 메서드와 유사하게 데이터 입력에 사용이 가능합니다. 도큐먼트를 입력할 때 POST 메서드로 <인덱스>/_doc 까지만 입력하게 되면 자동으로 임의의 도큐먼트id 가 생성됩니다. 도큐먼트id의 자동 생성은 PUT 메서드로는 동작하지 않습니다.
+	```
+	- 수정
+	POST my_index/_doc
+	{
+ 	 "name":"Jongmin Kim",
+ 	 "message":"안녕하세요 Elasticsearch"
+	}
+	```
+	
+	```
+	- 수정결과
+	{
+ 	 "_index" : "my_index",
+ 	 "_type" : "_doc",
+ 	 "_id" : "ZuFv12wBspWtEG13dOut",
+ 	 "_version" : 1,
+  	 "result" : "created",
+ 	 "_shards" : {
+ 	   "total" : 2,
+ 	   "successful" : 1,
+  	   "failed" : 0
+  	},
+  	"_seq_no" : 0,
+  	"_primary_term" : 1
+	}
+	```
       
 
 - ### Apache PredictionIO: 사용자 추천 오픈소스
