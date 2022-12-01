@@ -32,13 +32,21 @@
     - 간단한 설명
 
   - Apache PredictionIO: 사용자 추천 오픈소스
+
     - 오픈소스 설명: 개발자와 데이터 과학자가 기계 학습 작업을 위한 예측 엔진을 만들 수 있도록 최신 오픈소스 스택 위에 구축된 **오픈소스 기계 학습 서버입니다.**
     - 깃허브 링크: https://github.com/apache/predictionio.git
     - 라이선스: [Apache License 2.0](https://github.com/apache/predictionio/blob/develop/LICENSE.txt)
-  - < 데이터 시각화 오픈소스 >
-    - 간단한 설명
+
+  - Apache Zeppelin: 데이터 시각화 오픈소스
+
+    - 오픈소스 설명: Data 프레임워크/애플리케이션들 을 서로 조합하여 한 곳에서 분석코드 작성/실행/시각화/공유를 가능케 해주는 빅데이터 분석 도구입니다
+    - 깃허브 링크: https://github.com/apache/zeppelin
+    - 라이선스: [Apache License 2.0](https://github.com/apache/zeppelin/blob/master/LICENSE)
+
   - < 이미지 크롤링 오픈소스 >
+
     - 간단한 설명
+
   - RabbitMQ : 채팅 서비스 구현을 위한 오픈소스
     - rabbitMQ는 AMQP를 따르는 오픈소스 메시지 브로커 프로젝트입니다. 메시지 브로커라고 불리며, 메세지를 많은 사용자에게 전달하거나, 요청에 대한 처리 시간이 길 때, 요청을 다른 API에게 위임하고 빠른 응답을 할 때 많이 사용합니다.
     - 깃허브 링크 : https://github.com/rabbitmq
@@ -165,10 +173,6 @@
       - 서버에서 3001 포트 보낸 것을 리액트로 가져온다.
 
 - ### < DB 관리 오픈소스 >
-
-  - 설명:
-
-- ### < 오타 수정 오픈소스 >
 
   - 설명:
 
