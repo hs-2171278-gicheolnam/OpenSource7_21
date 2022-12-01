@@ -25,7 +25,7 @@
     - React: **대화형** 사용자 **인터페이스**를 구축하기 위한 **JavaScript** 라이브러리입니다.
     - 참고한 깃허브 링크: https://github.com/danawalab/service-management.git
     - 라이선스: [MIT License](https://github.com/vercel/next.js/blob/canary/license.md)
-  - MySQL - 허서준
+  - < DB 오픈소스>
     - 간단한 설명
   - < 오타 수정 오픈소스 >
     - 간단한 설명
@@ -40,6 +40,10 @@
     - 간단한 설명
   - < 이미지 크롤링 오픈소스 >
     - 간단한 설명
+  - RabbitMQ : 채팅 서비스 구현을 위한 오픈소스
+    - rabbitMQ는 AMQP를 따르는 오픈소스 메시지 브로커 프로젝트입니다. 메시지 브로커라고 불리며, 메세지를 많은 사용자에게 전달하거나, 요청에 대한 처리 시간이 길 때, 요청을 다른 API에게 위임하고 빠른 응답을 할 때 많이 사용합니다.
+    - 깃허브 링크 : https://github.com/rabbitmq
+    - 라이선스 : [Apache License 2.0, Mozilla Public License 2.0] (https://github.com/rabbitmq/osiris/blob/main/LICENSE-APACHE2, https://github.com/rabbitmq/osiris/blob/main/LICENSE-MPL-RabbitMQ)
 
 ## 사용된 오픈소스에 대한 설명
 
@@ -350,5 +354,153 @@
 - ### < 이미지 크롤링 오픈소스 >
 
   - 설명:
+
+- ### RabbitMQ : AMQP를 따르는 오픈소스 메시지 브로커 시스템
+  - RabbitMQ는 Erlang으로 AMQP를 구현한 메시지 브로커 시스템입니다.
+    -Erlang : 동시성 및 분산 스스템을 개발하는 데 주로 사용되는 다목적 프로그래밍 언어입니다.
+    - #### AMQP(Advanced Message Queuing Protocol)
+      - 클라이언트가 메시지 미들웨어 브로커와 통신할 수 있게 해주는 메세징 프로토콜입니다.
+      
+                              Broker
+	    Producers -> [Exchange -- Binding --> Queue] -> Consumers
+
+      - 메시지를 발행하는 Producer에서 Broker의 Exchange로 메시지를 전달하면, Binding이라는 규칙에 의해 연결된 Queue로 메시지가 복사됩니다.
+      - 메시지를 받아가는 Consumer에서는 Broker의 Queue를 통해 메시지를 받아가서 처리합니다.
+       - AMQP에는 네트워크에 문제가 있거나, 메시지를 처리하지 못하는 경우를 대비해 2가지 수신 확인 모델을 갖추고 있습니다.
+
+        - 하나는 Consumer는 메시지를 받으면 명시적으로 broker에게 통지하고, 브로커는 이 알림을 받았을 때만 Queue에서 메시지를 삭제합니다. 다른 하나는 Broker가 메시지를 전달하면 자동으로 삭제하는 방식입니다.
+
+        - 모든 메시지는 Queue로 직접 전달되지 않고, 반드시 Exchange에서 먼저 받습니. 그리고 Exchange Type과 Binding 규칙에 따라 적절한 Queue로 전달됩니다.
+          - Name : Exchange 이름
+          - Type : 메시지 전달 방식
+         - Direct Exchange
+          - Fanout Exchange
+         - Topic Exchange
+         - Headers Exchange
+         - Durability : 브로커가 재시작될 때 남아있는지 여부(durable, transient)
+         - Auto-delete : 마지막 Queue 연결이 해제되면 삭제
+   - #### Bindings
+    - 생성된 Exchange에는 전달받은 메시지를 원하는 Queue로 전달하기 위해 Bindings이라는 규칙을 정의할 수 있습니다.
+     - 간단하게 목적지 Queue 이름만으로도 Binding을 추가할 수 있고, 일부 Exchange Type에 따라 routing key를 지정해서 메세지를 필터링한 후 지정한 Queue로 보내도록 정의할 수 있습니다.
+   - #### Exchange Type
+    - Direct Exchange
+      - 메시지에 포함된 routing key를 기반으로 Queue에 메시지를 전달합니다.
+      - Exchagne로 전달된 메세지의 routing key가 일치하지 않는 경우 메시지를 무시합니다.
+      - Default Exchange는 이름이 없는 Direct Exchange의 한 형태로, 전달될 목적지 Queue 이름과 동일한 routing key를 부여합니다.
+
+    - Fanout Exchange
+      - routing key와 관계없이 연결된 모든 Queue에 동일한 메시지를 전달합니다.
+
+    - Topic Exchange
+      - routing key 전체가 일치하거나 일부 패턴과 일치하는 모든 Queue로 메시지가 전달됩니다.
+      - 여러 Consumer에서 메시지 형태에 따라 선택적으로 수신해야하는 경우와 같이 다양한 publish/subscribe 패턴 구현에 활용할 수 있습니다.
+      - Topic Exchange에서 사용하는 binding key는 점(.)으로 구분된 단어를 조합해서 정의합니다.
+      - *와 #을 이용하여 와일드 카드를 표현할 수 있으며, *는 단어 하나 일치, #는 0 또는 1개 이상의 단어 일치를 의미합니다.
+       ex)*.orange.* ← quick.orange.rabbit, lazy.orange.elephant
+          *.*.rabbit ← quick.orange.rabbit, lazy.pink.rabbit
+          lazy.# ← lazy.orange.elephant, lazy.pink.rabbit
+
+    - Headers Exchange
+      - 메시지 헤더를 통해 binding key만을 사용하는 것보다 더 다양한 속성을 사용할 수 있습니다.
+      - Header Exchange를 사용하면 binding key는 무시되고, 헤더 값이 binding 시 지정된 값과 같은 경우에만 일치하는 것으로 간주됩니다.
+   - #### Queue
+    - Producer들이 발송한 메세지들이 Consumer가 소비하기 전까지 보관되는 장소입니다.
+    - Consumer 어플리케이션은 Queue를 통해 메시지를 가져갑니다. Queue는 반드시 미리 정의해야 사용할 수 있습니다.
+    - 같은 이름, 같은 설정으로 Queue 생성시 에러 없이 기존 Queue에 연결됩니다.
+      - Name : ‘.’, ‘amq.’로 시작하는 queue 이름은 예약되어 사용할 수 없다.
+      - Durability : durable은 브로커가 재시작되어도 디스크에 저장되어 남아 있고, transient으로 설정하면 브로커가 재시작되면 사라진다. 단, Queue에 저장되는 메시지는 내구성을 갖지 않는다.
+      - Auto delete : 마지막 Consumer가 구독을 끝내는 경우 자동으로 삭제
+      - Arguments : 메시지 TTL, Max Length 같은 추가 기능을 명시
+   - #### Channels
+    - RabbitMQ는 Channel이라는 개념을 통해 하나의 TCP 연결을 공유해서 사용할 수 있는 기능을 제공합니다.
+    - 하지만 멀티 스레드. 멀티 프로세스를 사용하는 작업에서는 각각 별도의 Channel을 열고 사용해야 하는 것이 좋습니다.
+  - #### Virtual Hosts
+    - 하나의 Broker에서 운영 환경(ex. live, dev)에 따라 Users, Exchange, Queue 등을 각각 사용할 수 있는 Vhosts 컨셉을 갖고 있습니다.
+  - #### RabbitMQ의 특징
+    - 기본적으로 메시지 큐(Message Queue) 서버이기 때문에 메시지가 누락될 위험이 거의 없습니다. 설령 연결이 끊어졌다 하더라도 다시 연결하는 순간 큐에 저장된 메시지를 구독할 수 있으며, 순서 역시 보장됩니다.
+    - 내결함성(Fault tolerance)이 극도로 뛰어납니다. 이는 RabbitMQ의 특징이라기보다 Erlang 언어의 특징이기도 합니다.
+    - 외부 의존성이 없습니다. 내장된 Mnesia 및 ETS, DETS 모두 강력한 성능과 안정성을 자랑합니다. 별도의 외부 의존성 없이 구동, 운용이 가능한 점은 큰 장점을 가집니다.
+    - 동시성(Concurrency) 성능이 매우 뛰어납니다. 따라서 비슷하게 동시성 성능이 뛰어나다면 굳이 단일 프로세스로 동작하는 Node.js 나 Python을 고려해야 할 이유가 사라지게 됩니다.
+    - 수평적 확장(Horizontal Scale Out)이 쉽습니다. 여러 RabbitMQ 서버를 클러스터로 묶어버릴 수도 있습니다.
+    - 뛰어난 성능을 보여줍니다. 초당 수만 건의 메시지는 큰 문제없이 전송이 가능합니다. Apache Kafka 정도의 성능은 아니지만 실사용에는 문제가 없습니다.
+    - WebSocket/STOMP 등의 웹 기반 소켓 프로토콜 역시 지원합니다.
+    - RabbitMQ 는 다양한 언어로 개발 라이브러리를 제공합니다. 
+
+  - #### RabbitMQ의 양방향 통신 과정
+    1. 클라이언트와 서버는 API 서버와 동기화(Synchronous)된 요청과 응답을 주고 받습니다.
+    2. 클라이언트는 RabbitMQ 서버와 AMQP 연결을 맺습니다.
+    3. 서버에서 특정 클라이언트에 메시지를 전달하고자 할 때 RabbitMQ를 통해 메시지를 발행(Publish)하면 클라이언트는 해당 메시지를 받습니다.
+    4. 클라이언트는 받은 메시지를 해석(Parsing)해서 취해야 할 행동을 합니다.
+  - #### Message 및 Queue 보존
+    - RabbitMQ가 종료되면 기본적으로 Queue는 모두 제거됩니다.
+    - Message와 Queue 데이터를 보존하기 위해서 Queue 생성시 Durable 옵션에 true 주고 생성해야 합니다.
+    - Producer가 메시지 발송시 PERSISTENT_TEXT_PLAIN 옵션을 주어야 합니다.
+  - #### Prefetch Count
+    - 하나의 Queue에 여러 Consumer가 존재할 경우, Queue는 기본적으로 Round-Robin 방식으로 메세지를 분배합니다.
+      - Round-Robin : 프로세스들 사이에 우선순위를 두지 않고, 순서대로 시간단위로 할당하는 방식의 알고리즘입니다.
+    - Consumer가 2개인 상황에서 홀수번째 메세지는 처리 시간이 짧고, 짝수번째 메세지는 처리 시간이 매우 긴 경우, 계속해서 하나의 Consumer만 일을 하게 되는 상황이 발생할 수 있습니다
+    - 이를 예방하기 위해, prefetch count를 1로 설정해 두면, 하나의 메세지가 처리되기 전(Ack를 보내기 전)에는 새로운 메세지를 받지 않게 되므로, 작업을 분산시킬 수 있습니다.
+
+  - #### RabbitMQ 서버 생성
+   - 콘솔 > Server > Server 메뉴에서 RabbitMQ 서버 이미지를 선택하여 생성할 수 있습니다.
+   - 원하는 사양의 서버를 생성하고 필요에 따라 스토리지를 추가합니다.
+   - 월 요금제와 시간 요금제로 청구되며, 서버를 생성한 후 접속 환경을 설정하여 이용할 수 있습니다.
+   - RabbitMQ를 이용하기 위해서 공인 IP 주소를 신청하고 ACG 설정에서 5672, 15672(Management UI Plugin 사용 시) 포트를 추가해야 합니다.
+   - RabbitMQ의 Management UI를 사용하지 않으며, RabbitMQ를 VM 간에서만 이용하는 경우에는 공인 IP 주소 할당 없이 <비공인 IP>:5672 주소를 통해서 사용할 수 있습니다.
+  - #### RabbitMQ 구현
+   1. 서버 생성
+   2. 공인 IP 신청
+   3. 포트포워딩 설정
+   4. ACG 설정
+   5. 터미널 프로그램 접속
+   6. 초기 패스워드 확인
+   7. RabbitMQ 접속
+   
+  - 실행 방법
+   ```
+    $ systemctl start rabbitmq-server
+  ```
+  - 새로운 user 추가 및 password 설정
+    ```
+    $ /bin/bash /opt/rabbitmq/rabbitmq-add-user.sh
+    type your username: myuser
+    type your password: mypass
+    # output messages
+    Creating user "myuser"
+    Setting tags for user "myuser" to [administrator]
+    Setting permissions for user "myuser" in vhost "/"
+   ```
+  - user 삭제
+    ```
+    $ /bin/bash /opt/rabbitmq/rabbitmq-delete-user.sh
+    type your username to delete: admin
+    # output message
+    Deleting user "admin"
+    ```
+  - password 변경
+    ```
+    $ rabbitmqctl change_password <username> <newpassword>
+    ``` 
+  - RabbitMQ 프로세스 기동
+    - systemctl를 사용하여 프로세스를 시작하는 경우
+    ```
+    shell> systemctl start rabbitmq-server
+
+    ```
+  - RabbitMQ 프로세스 중지
+     ```
+    shell> systemctl stop rabbitmq-server
+
+    ```
+  - RabbitMQ 프로세스 확인
+     ```
+    shell> rabbitmqctl status
+
+    ```
+  - RabbitMQ Management UI Plugin 시작하기
+     ```
+    shell> /bin/bash /opt/rabbitmq/rabbitmq-start-management.sh
+
+    ```
 
 ## DFD
