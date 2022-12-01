@@ -569,12 +569,27 @@
 
 -  selenium의 구성
 
-       웹을 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium Webdriver, Selenium Grid로 구성됩니다.
+       웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
 
 
-     - Selenium IDE - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.
+     - Selenium IDE - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.  Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
+     - Selenium RC - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
+         - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
+         - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
+         - Android 애플리케이션 테스트를 지원하지 않습니다.
      - Selenium Webdriver - 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
+         - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
+         - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
+         - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
      - Selenium Grid -  시스템에서 다양한 웹 브라우져를 동시 (parallel)에 테스팅하는 기능을 제공합니다.
+
+-  Selenium의 특징
+     - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
+     - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
+     - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
+     - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
+     - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
+     - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
 
   -  Selenium을 사용하기 위한 환경설정
 
