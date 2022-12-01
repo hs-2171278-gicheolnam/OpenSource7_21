@@ -43,7 +43,7 @@
   - RabbitMQ : 채팅 서비스 구현을 위한 오픈소스
     - rabbitMQ는 AMQP를 따르는 오픈소스 메시지 브로커 프로젝트입니다. 메시지 브로커라고 불리며, 메세지를 많은 사용자에게 전달하거나, 요청에 대한 처리 시간이 길 때, 요청을 다른 API에게 위임하고 빠른 응답을 할 때 많이 사용합니다.
     - 깃허브 링크 : https://github.com/rabbitmq
-    - 라이선스 : [Apache License 2.0, Mozilla Public License 2.0] (https://github.com/rabbitmq/osiris/blob/main/LICENSE-APACHE2, https://github.com/rabbitmq/osiris/blob/main/LICENSE-MPL-RabbitMQ)
+    - 라이선스 : [Apache License 2.0](https://github.com/rabbitmq/osiris/blob/main/LICENSE-APACHE2), [Mozilla Public License 2.0](https://github.com/rabbitmq/osiris/blob/main/LICENSE-MPL-RabbitMQ)
 
 ## 사용된 오픈소스에 대한 설명
 
