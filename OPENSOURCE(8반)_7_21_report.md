@@ -573,7 +573,7 @@
 	
 	  - 수정
 	
-	    ```
+	```
 	    POST my_index/_doc
 	    {
 	     "name":"Jongmin Kim",
@@ -893,7 +893,7 @@
        
          1. Selenium 라이브러리 설치
        
-            - `pip install selenium`
+            - ```pip install selenium```
          
          2. Chrome Driver 설치
          
@@ -935,7 +935,7 @@
                         except:
                             pass
             ```
-         
+    
          5. 최종 파이썬 코드
          
             ```python
@@ -945,7 +945,7 @@
             import urllib.request
             import os
             ```
-         
+    
             - 폴더 생성 여부
          
             ```python
