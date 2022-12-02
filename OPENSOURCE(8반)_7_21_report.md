@@ -129,20 +129,20 @@
 
 
     - Next.js: 고속 **웹 애플리케이션**을 만들기 위한 구성 요소를 제공하는 React의 프레임워크입니다.
-
+    
       - 프레임워크: React에 필요한 툴과 구성을 처리하고 애플리케이션에 추가구조, 기능 및 최적화를 제공하는 것을 의미합니다.
 
 
 
     - React: **대화형** 사용자 **인터페이스**를 구축하기 위한 **JavaScript** 라이브러리입니다.
-
+    
       - 컴포넌트라고 불리는 스니펫을 사용해 복잡한 UI를 구성하도록 돕습니다.
         - 스니펫: 재사용 가능한 소스코드, 기계어, 텍스트의 작은 부분을 의미합니다.
 
 
 
     - 웹 응용프로그램 구성요소
-
+    
       - Graphic User Interface: 사용자가 응용프로그램을 사용하고 상호작용하는 방법
       - 라우팅: 사용자가 응용 프로그램의 여러 부분을 이동하는 방법
       - 인프라 스트럭쳐: 애플리케이션 코드를 전개, 저장 및 실행
@@ -151,7 +151,7 @@
 
 
     - #### 앱을 만들기 위한 기본 사항
-
+    
       - React를 사용해 완전한 웹 서비스를 구축하기 위해 필요한 세부사항입니다.
         - 코드는 webpack과 같은 번들러를 사용하여 번들링되고, Babel과 같은 컴파일러를 사용해 변환되어야 합니다.
         - 코드 분할과 같은 생산 최적화를 수행해야 합니다.
@@ -167,45 +167,45 @@
 
 
     - #### React 사용
-
+    
       - React를 사용하여 UI를 구축한 후 Next.js 기능을 점진적으로 채택해 웹 응용 프로그램 구성 요소인 라우팅, 데이터 가져오기, 통합 등의 일반적인 애플리케이션 요구사항을 해결하면서 개발자와 최종 사용자 환경을 개선할 수 있습니다.
-
+    
       - 사용자가 웹 페이지를 방문하면 서버는 사용자에게 HTML 파일을 브라우저에 반환합니다. 그런 다음 브라우저는 HTML 파일을 읽어 DOM을 구성합니다. 이 때 DOM은 코드와 사용자 인터페이스를 연결하는 브리지 역할을 합니다.
-
+    
       - React: 선언적 UI 라이브러리
-
+    
         - 개발자가 사용자 인터페이스를 구축하는 데 도움이 되는 선언적 라이브러리로 React가 사용 됩니다.
-
+    
         - 개발자로서 사용자 인터페이스에 어떤 일을 처리하기를 원하는지 React에게 알릴 수 있고, React는 개발자를 대신해 DOM을 업데이트하는 단계를 알아냅니다.
-
+    
         - 일반적으로 JavaScript로 DOM을 직접 조작하는 대신 react-dom 라이브러리의 ReactDOM.render() 메서드를 사용하여 제목을 지정할 수 있습니다.
-
+    
           - 이 때 사용하는 코드는 JS가 아닌 JSX이므로 브라우저가 이해하지 못합니다.
           - 따라서 JSX 코드를 일반 JS로 변환하기 위해서는 Babel과 같은 JavaScript 컴파일러가 필 요합니다.
           - 추가로 스크립트의 type을 text/jsx로 지정합니다.
-
+    
           ```
           <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
           <script type="text/jsx">
           ```
-
+    
         - React는 사용자를 대신해 작업을 수행하는 재사용 가능한 코드 스니펫을 포함하는 라이브러리입니다.
-
+    
         - React는 hooks라는 함수 세트를 사용해 구성요소의 상태와 같은 논리를 추가할 수 있습니다. 사용자의 상호작용에 의해 변화하는 UI의 모든 정보라고 할 수 있습니다.
-
+    
           - ex) React의 hooks의 함수세트 중 useState() 메서드를 사용 사용자가 좋아요 버튼을 클릭한 횟수를 저장하고 증가시킬 수 있습니다.
-
+    
       - React 동작 방식
-
+    
         - 유저가 브라우저를 통해 앱에 접속합니다.
         - 앱은 브라우저에게 javascript 정보가 들어있는 빈 HTML 문서를 전달합니다.
         - 브라우저는 javascript 파일을 다운로드하고 동시에 유저는 빈 화면을 봅니다.
         - 브라우저에서 js 파일의 다운로드가 끝나면 리액트 코드가 있는 js 파일을 실행합니다.
         - 브라우저에 있는 리액트 코드가 UI를 렌더링합니다.
         - 유저는 앱이 보여주고자 했던 화면을 보게 됩니다.
-
+    
       - Next 동작 방식
-
+    
         - 유저가 브라우저를 통해 앱에 접속합니다.
         - 서버에서 리액트를 실행합니다.
         - 리액트는 UI를 렌더링합니다.
@@ -215,39 +215,39 @@
 
 
     - #### 앱 구현
-
+    
       - React 와 Next.js를 사용해 로그인하기
-
+    
         - 컴포넌트를 만들어 사용
           - 유저에게 보여질 UI를 담고 있는 디렉터리에서 component 폴더 생성 후 Head.js 파일과 Intro.js 파일을 생성합니다.
           - import를 사용해 생성한 컴포넌트를 가져옵니다.
         - nodemon을 설치한 후 서버에서 실행합니다.
         - SQL 연결
-
+    
         ```
         $ cd /usr/local/mysql/bin/
         ```
-
+    
         - 해당 폴더로 이동하여 아래 커멘드 실행
-
+    
         ```
         $ ./mysql -u root -p
         ```
-
+    
         - 비밀번호를 입력하여 MySQL 데이터베이스에 접속합니다.
-
+    
       - 데이터베이스, 테이블, 데이터 생성
-
+    
         - 데이터베이스를 생성한 후 데이터 베이스를 선택합니다.
         - 이후 테이블을 만들 수 있습니다.
-
+    
       - Node.js에 SQL 모듈 설치 및 설정
-
+    
         - server 폴더에 sql 모듈을 설치하고 불러옵니다.
         - dataBase 변수를 생성하여 연결 정보를 입력합니다.
-
+    
       - 데이터 넣고 가져오기
-
+    
         - 데이터 넣기
         - 넣은 데이터 확인하기
         - 데이터베이스의 값들 가져오기
@@ -260,32 +260,23 @@
 
 - ### MYSQL: DB관리 오픈소스
 
+  - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
+  - 관계형 데이터베이스: 관계형 데이터베이스는 데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가 어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의된 관계로 데이터를 구성하는 정보 모음
 
-    - 가장 널리 사용되고 있는 관계형 데이터베이스 관리 시스템(RDBMS: Relational DBMS)
+  - 여러 프로그래밍 언어와 호환성이 좋음
 
+  - 라이선스: 상용 소프트웨어(유료), GPL v2(무료)
 
-     - 관계형 데이터베이스: 관계형 데이터베이스는 데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가 어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의된 관계로 데이터를 구성하는 정보 모음
-
-
-    - 여러 프로그래밍 언어와 호환성이 좋음
-
-
-    - 라이선스: 상용 소프트웨어(유료), GPL v2(무료)
-
-
-     - 유료 상용라이선스를 쓰는 이유
-          - Apache 2.0과 GPL v2는 라이선스 충돌을 일으키기 때문에 유료버전을 이용해 라이선스 충돌을 피해야 함.
-          - 유료 라이선스를 사용하면 백업/복구, 모니터링 등 자체적인 부가기능과 기술지원을 받을 수 있음 
-
-
+    - 유료 상용라이선스를 쓰는 이유
+      - Apache 2.0과 GPL v2는 라이선스 충돌을 일으키기 때문에 유료버전을 이용해 라이선스 충돌을 피해야 함.
+      - 유료 라이선스를 사용하면 백업/복구, 모니터링 등 자체적인 부가기능과 기술지원을 받을 수 있음 
     - mysql을 사용하는 이유
       - https://db-engines.com/en/ranking 이 웹사이트는 DBMS 점유율 순위를 알려주는데 mysql은 다른 DBMS들과 큰 차이로 2위를 하고 있음.
-
       - mysql이 90년대 등장 이래 많은 곳에서 쓰이는 RDBMS이므로 레퍼런스의 수가 다른 DBMS에 비해 많아 사용하기 유용함.
 
+  - ### mysql 기초 개념
 
-    - ### mysql 기초 개념
-      - 테이블(Table): 데이터를 기록하는 최종적인 곳
+    - 테이블(Table): 데이터를 기록하는 최종적인 곳
       - 스키마(Schema): 테이블들을 모아 놓은 것
       - 데이터베이스(Database): 마찬가지로 테이블들을 모아 놓은 것
       - 데이터베이스 서버(Database Server): 스키마들을 모아 놓은 곳
@@ -297,145 +288,139 @@
               - Read: 표의 데이터 읽기
               - Update: 새로운 데이터를 표에 업데이트
               - Delete: 표의 데이터를 삭제
-      
       - 데이터베이스 명령어
-        
-          **DDL**
-          
-          DDL (Data Definition Language, **데이터 정의어)** 데이터의 구조를 정의하는 데 사용하는 명령어 (생성, 변경, 삭제, 이름변경)등을 하기 위한 명령어
-          
-          - Create - 테이블을 생성한다.
-          - Alter - 테이블을 수정한다.
-          - Drop - 테이블을 삭제한다.
-          - Rename - 테이블의 이름을 변경한다.
-          - Truncate - 테이블 안에 있는 데이터를 전체 삭제한다. (Drop과 다르게 테이블은 유지한다.)
-          
-          **DML**
-          
-          DML (Data Manipulation Language, **데이터 조작어)** DB안에 있는 데이터를 조회하거나 데이터에 변형을 할 수 있는 명령어
-          
-          - Select - 데이터를 검색한다.
-          - Insert - 데이터를 생성한다.
-          - Update - 데이터를 수정한다.
-          - Delete - 데이터를 지운다.
-          
-          DDL과 DCL은 테이블에서 다루는 것과 데이터를 다루는 것에 차이점이 있음.
-          
-          **DCL**
-          
-          DCL (Data Control Language, **데이터 제어어)** DB에 접근하고 객체들을 사용할 수 있도록 하는 권한을 주고 회수하는 명령어
-          
-          - Grant - 권한을 부여한다.
-          - Revoke - 권한을 회수한다.
-          
-          **TCL**
-          
-          TCL (Transaction Control Language, **트랜젝션 제어어)** 트랜젝션이란 작업의 제어 단위. 데이터베이스가 많은 작업, 동시 작업을 하게 되는 경우 제어가 필요
-          
-          - Commit - 변경된 데이터를 테이블에 영구적으로 반영한다.
-          - Rollback - 데이터 변경을 취소하여 데이터를 이전 상태로 복구한다.
-          - Savepoint - 롤백은 이전의 데이터 변경을 취소한다면 savepoint는 저장 위치를 정의한 곳까지 돌아간다.
+          - **DDL**
+               - DDL (Data Definition Language, **데이터 정의어)** 데이터의 구조를 정의하는 데 사용하는 명령어 (생성, 변경, 삭제, 이름변경)등을 하기 위한 명령어
+               - Create - 테이블을 생성한다.
+               - Alter - 테이블을 수정한다.
+               - Drop - 테이블을 삭제한다.
+               - Rename - 테이블의 이름을 변경한다.
+               - Truncate - 테이블 안에 있는 데이터를 전체 삭제한다. (Drop과 다르게 테이블은 유지한다.)
+          - **DML**
+               - DML (Data Manipulation Language, **데이터 조작어)** DB안에 있는 데이터를 조회하거나 데이터에 변형을 할 수 있는 명령어
+               - Select - 데이터를 검색한다.
+               - Insert - 데이터를 생성한다.
+               - Update - 데이터를 수정한다.
+               - Delete - 데이터를 지운다.
+          - DDL과 DCL은 테이블에서 다루는 것과 데이터를 다루는 것에 차이점이 있음.
+          - **DCL**
+               - DCL (Data Control Language, **데이터 제어어)** DB에 접근하고 객체들을 사용할 수 있도록 하는 권한을 주고 회수하는 명령어
+                    - Grant - 권한을 부여한다.
+                    - Revoke - 권한을 회수한다.
+          - **TCL**
+               - TCL (Transaction Control Language, **트랜젝션 제어어)** 트랜젝션이란 작업의 제어 단위. 데이터베이스가 많은 작업, 동시 작업을 하게 되는 경우 제어가 필요
+               - Commit - 변경된 데이터를 테이블에 영구적으로 반영한다.
+               - Rollback - 데이터 변경을 취소하여 데이터를 이전 상태로 복구한다.
+               - Savepoint - 롤백은 이전의 데이터 변경을 취소한다면 savepoint는 저장 위치를 정의한 곳까지 돌아간다.
 
+  - ### 시스템에서의 사용
 
-    - ### 시스템에서의 사용
-      - 사용자에게 판매할 컴퓨터 장비들을 DB에 저장하고 이 정보를 가져와 사용할 것임
-      - <판매할 컴퓨터 장비들을 저장한 DB 모습>
-        
-        
-          | 이름    | 가격    | 제조일자  |
-          | ---     | ---    | ---       |
-          | RTX3060 | 450000 | 210405    |
-          | i5-12400| 220000 | 211013    |
+    - 사용자에게 판매할 컴퓨터 장비들을 DB에 저장하고 이 정보를 가져와 사용할 것임
+    - <판매할 컴퓨터 장비들을 저장한 DB 모습>
 
-      - 설치
-        - https://www.mysql.com/downloads/ MYSQL설치 주소
+    ```
+    | 이름    | 가격    | 제조일자  |
+    | ---     | ---    | ---       |
+    | RTX3060 | 450000 | 210405    |
+    | i5-12400| 220000 | 211013    |
+    ```
 
-      - 접속
-        ```
-        mysql -uroot -p
-        ```
-        나의 mysql 계정으로 접속한다.
-        ```
-        SHOW DATABASES;
-        ```
-        생성된 데이터베이스를 확인할 수 있다.
-        ```
-        use 데이터베이스이름;
-        ```
-        해당 데이터베이스에 접속한다.
-        ```
-        SHOW TABLES;
-        ```
-        테이블의 목록을 확인할 수 있다.
+    - 설치
 
-      - 데이터베이스 생성하기
-        1. root 계정 접속 후
-        2. 명령어 입력`CREATE DATABASE 데이터베이스이름 default CHARACTER SET UTF8;`
-      
-        products_db 라는 데이터베이스를 생성하기`CREATE DATABASE products_db default CHARACTER SET UTF8;`
+      - https://www.mysql.com/downloads/ MYSQL설치 주소
 
-      - 테이블 생성하기
-        1. todo_user 계정으로 접속`mysql -utodo_user -p`
-      
-        2. 데이터베이스 목록보기`show databases;`
-      
-        ```
-        +--------------------+
-        | Database           |
-        +--------------------+
-        | information_schema |
-        | products_db        |
-        +--------------------+
-        ```
-      
-        3. products_db라는 데이터베이스의 table 확인하기
-      
-        ```
-        mysql> use todo_db;
-        Database changed
-        mysql> show tables;
-        Empty set (0.01 sec)
-        ```
-      
-        4. table 추가하기
-      
-        ```
-        CREATE TABLE 테이블이름 (
-      	  컬럼명 데이터타입 ... ,
-         	  컬럼명 데이터타입 ... ,
-          	  ...
-                );
-        ```
-      
-      - products 라는 테이블 생성하기
-      
-        ```
-        CREATE TABLE products (
-            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-            title VARCHAR(255) NOT NULL,
-            price INT(8) NOT NULL,
-            regdate DATETIME DEFAULT NOW(),
-            PRIMARY KEY (id)
-            );
-        
-        ```
-      
-        1. "id" 컬럼 생성
-            - 데이터타입 : BIGINT(20) UNSIGNED
-            - 제약조건 : NOT NULL (null값을 가질 수 없음)
-            - AUTO_INCREMENT : 1부터 자동으로 증가
-        2. "name" 컬럼 생성
-            - 데이터타입 : VARCHAR(100)
-            - 제약조건 : NOT NULL
-        3. "price" 컬럼 생성
-            - 데이터타입 : INT(8)
-            - 제약조건 : NOT NULL
-        4. "regdate" 컬럼 생성
-            - 데이터타입 :DATETIME(문자열 형식이며 YYYY-MM-DD HH:MM:SS 형식)
-            - default : now() 라는 내장함수 사용
-        5. 기본키는 "id"
+    - 접속
 
+      ```
+      mysql -uroot -p
+      ```
 
+    - 나의 mysql 계정으로 접속한다.
+
+      ```
+      SHOW DATABASES;
+      ```
+
+    - 생성된 데이터베이스를 확인할 수 있다.
+
+      ```
+      use 데이터베이스이름;
+      ```
+
+    - 해당 데이터베이스에 접속한다.
+
+      ```
+      SHOW TABLES;
+      ```
+
+    - 테이블의 목록을 확인할 수 있다.
+
+    - 데이터베이스 생성하기
+
+      1. root 계정 접속 후
+      2. 명령어 입력`CREATE DATABASE 데이터베이스이름 default CHARACTER SET UTF8;`
+      3. products_db 라는 데이터베이스를 생성하기`CREATE DATABASE products_db default CHARACTER SET UTF8;`
+
+    - 테이블 생성하기
+
+      1. todo_user 계정으로 접속`mysql -utodo_user -p`
+
+      2. 데이터베이스 목록보기`show databases;`
+
+         ```
+         +--------------------+
+         | Database           |
+         +--------------------+
+         | information_schema |
+         | products_db        |
+         +--------------------+
+         ```
+
+      3. products_db라는 데이터베이스의 table 확인하기
+
+         ```
+         mysql> use todo_db;
+         Database changed
+         mysql> show tables;
+         Empty set (0.01 sec)
+         ```
+
+      4. table 추가하기
+
+         ```
+         CREATE TABLE 테이블이름 (
+         	컬럼명 데이터타입 ... ,
+         	컬럼명 데이터타입 ... ,
+         	...
+         );
+         ```
+
+    - products 라는 테이블 생성하기
+
+      ```
+      CREATE TABLE products (
+              id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+              title VARCHAR(255) NOT NULL,
+              price INT(8) NOT NULL,
+              regdate DATETIME DEFAULT NOW(),
+              PRIMARY KEY (id)
+      );
+      ```
+
+      1. "id" 컬럼 생성
+         - 데이터타입 : BIGINT(20) UNSIGNED
+         - 제약조건 : NOT NULL (null값을 가질 수 없음)
+         - AUTO_INCREMENT : 1부터 자동으로 증가
+      2. "name" 컬럼 생성
+         - 데이터타입 : VARCHAR(100)
+         - 제약조건 : NOT NULL
+      3. "price" 컬럼 생성
+         - 데이터타입 : INT(8)
+         - 제약조건 : NOT NULL
+      4. "regdate" 컬럼 생성
+         - 데이터타입 :DATETIME(문자열 형식이며 YYYY-MM-DD HH:MM:SS 형식)
+         - default : now() 라는 내장함수 사용
+      5. 기본키는 "id"
 
   - 테이블 데이터 추가
     
@@ -566,82 +551,94 @@
 	GET my_index/_doc/1
 	```
 	- 도큐먼트 조회결과
-
- 	{
- 	 "_index" : "my_index",
- 	 "_type" : "_doc",
- 	 "_id" : "1",
- 	 "_version" : 2,
- 	 "_seq_no" : 1,
- 	 "_primary_term" : 1,
- 	 "found" : true,
- 	 "_source" : {
- 	   "name" : "Jongmin Kim",
- 	   "message" : "안녕하세요 Elasticsearch"
- 	 }
- 	}
- 	```
- 	- 수정 (POST)
- 	- POST 메서드는 PUT 메서드와 유사하게 데이터 입력에 사용이 가능합니다. 도큐먼트를 입력할 때 POST 메서드로 <인덱스>/_doc 까지만 입력하게 되면 자동으로 임의의 도큐먼트id 가 생성됩니다. 도큐먼트id의 자동 생성은 PUT 메서드로는 동작하지 않습니다.
- 	```
- 	- 수정
- 	POST my_index/_doc
- 	{
- 	 "name":"Jongmin Kim",
- 	 "message":"안녕하세요 Elasticsearch"
- 	}
- 	```
- 	
- 	```
- 	- 수정결과
- 	{
- 	 "_index" : "my_index",
- 	 "_type" : "_doc",
- 	 "_id" : "ZuFv12wBspWtEG13dOut",
- 	 "_version" : 1,
- 	 "result" : "created",
- 	 "_shards" : {
- 	   "total" : 2,
- 	   "successful" : 1,
- 	   "failed" : 0
- 	},
- 	"_seq_no" : 0,
- 	"_primary_term" : 1
- 	}
- 	```
-  - **도커 (Docker)**
-    
-    - Docker는 애플리케이션을 신속하게 구축, 테스트 및 배포할 수 있는 소프트웨어 플랫폼입니다. 아파치2.0 라이센스를 사용합니다. 도커는 소프트웨어를 컨테이너라는 표준화된 유닛으로 패키징하고, 이 컨테이너에는 라이브러리, 시스템 도구, 코드, 런타임 등 소프트웨어를 실행하는 데 필요한 모든 것이 포함되어 있습니다. 컨테이너를 사용하기 위한 운영체제로 가상 머신이 서버 하드웨어를 가상화하는 방식과 비슷하게 컨테이너는 서버 운영 체제를 가상화합니다.Docker를 사용하면 코드를 더 빨리 전달하고, 애플리케이션 운영을 표준화하고, 코드를 원활하게 이동하고, 리소스 사용률을 높여 비용을 절감할 수 있습니다.
-    
-    - **키바나 (Kibana)**
-    
-      - Kibana는 Elasticsearch를 가장 쉽게 시각화 할 수 있는 도구입니다. 엘라스틱 서치와 마찬가지로 **Elastic license**를 라이센스로 사용합니다. 검색, 그리고 aggregation의 집계 기능을 이용해 Elasticsearch로 부터 문서, 집계 결과 등을 불러와 웹 도구로 시각화를 합니다. Discover, Visualize, Dashboard 3개의 기본 메뉴와 다양한 App 들로 구성되어 있고, 플러그인을 통해 App의 설치가 가능합니다.
-      - Discover
-        -Discover는 Elasticsearch에 색인된 소스 데이터들의 검색을 위한 메뉴입니다. 검색 창에 질의문을 통해 데이터를 간편하게 검색, 필터링 할 수 있으며, 검색된 데이터의 원본 문서를 확인하거나 보고 싶은 필드만 선택해서 테이블 형태로 조회가 가능합니다. 시계열(time series) 기반의 로그 데이터인 경우 시간 히스토그램 그래프를 통해 시간대별 로그 수도 표시됩니다.
-      - Visualize
-      - Visualize는 aggregation 집계 기능을 통해 조회된 데이터의 통계를 다양한 차트로 표현할 수 있는 패널을 만드는 메뉴입니다. 영역차트, 바차트, 파이차트, 라인차트 등 다양한 시각화 도구들의 사용이 가능하며 여기서 만들어진 패널들을 조합해서 대시보드를 만들게 됩니다.
-      - Dashboard
-      - Visualize 메뉴에서 만들어진 시각화 도구들을 조합해서 대시보드 화면을 만들고 저장, 불러오기 등을 할 수 있는 메뉴입니다. 다른 메뉴들과 마찬가지로 검색 창에 쿼리를 입력하거나 시각화 도구들을 클릭해서 조회할 데이터들의 필터링이 가능하고, URL로 대시보드를 다른 사람들과 공유하거나 json 형식으로 내보내고 불러오기 등이 가능합니다.
-    
-    - **kibana 시작하는법**
-    
-      - Kibana를 사용하면 Elastic 검색에 쉽게 요청을 보내고 대화식으로 데이터를 분석, 시각화 및 관리할 수 있습니다.
-    
-        1.새 터미널 세션에서 Kibana를 시작하고 엘라스틱서치 컨테이너에 연결합니다.
-    
-      ```
-      docker pull docker.elastic.co/kibana/kibana:{version} (1)
-      docker run --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:{version}
-      ```
-      - 버전을 실행하려는 kibana버전으로 바꿉니다.
-    
-      - kibana를 시작하면 고유한 URL터미널에 출력됩니다.
-    
-        2. kibana에 엑세스하려면 브라우저에서 생성된 URL을 엽니다.
-    
-           - A.엘라스틱서치를 시작할 때 복사한 등록 토큰을 붙여넣고 버튼을 클릭하여 Kibana 인스턴스를 엘라스틱서치와 연결합니다.
-    
-           - B.엘라스틱서치를 시작할 때 생성된 암호로 Kibana에 Elastic 사용자로 로그인합니다.
+	
+	```
+	{
+	 "_index" : "my_index",
+	 "_type" : "_doc",
+	 "_id" : "1",
+	 "_version" : 2,
+	 "_seq_no" : 1,
+	 "_primary_term" : 1,
+	 "found" : true,
+	 "_source" : {
+	   "name" : "Jongmin Kim",
+	   "message" : "안녕하세요 Elasticsearch"
+	 }
+	}
+	```
+	
+	- 수정 (POST)
+	
+	  - POST 메서드는 PUT 메서드와 유사하게 데이터 입력에 사용이 가능합니다. 도큐먼트를 입력할 때 POST 메서드로 <인덱스>/_doc 까지만 입력하게 되면 자동으로 임의의 도큐먼트id 가 생성됩니다. 도큐먼트id의 자동 생성은 PUT 메서드로는 동작하지 않습니다.
+	
+	  - 수정
+	
+	    ```
+	    POST my_index/_doc
+	    {
+	     "name":"Jongmin Kim",
+	     "message":"안녕하세요 Elasticsearch"
+	    }
+	    ```
+	
+	  - 수정결과
+	
+	    ```
+	    {
+	     "_index" : "my_index",
+	     "_type" : "_doc",
+	     "_id" : "ZuFv12wBspWtEG13dOut",
+	     "_version" : 1,
+	     "result" : "created",
+	     "_shards" : {
+	       "total" : 2,
+	       "successful" : 1,
+	       "failed" : 0
+	    },
+	    "_seq_no" : 0,
+	    "_primary_term" : 1
+	    }
+	    ```
+	
+	- **도커 (Docker)**
+	
+	  - Docker는 애플리케이션을 신속하게 구축, 테스트 및 배포할 수 있는 소프트웨어 플랫폼입니다. 아파치2.0 라이센스를 사용합니다. 도커는 소프트웨어를 컨테이너라는 표준화된 유닛으로 패키징하고, 이 컨테이너에는 라이브러리, 시스템 도구, 코드, 런타임 등 소프트웨어를 실행하는 데 필요한 모든 것이 포함되어 있습니다. 컨테이너를 사용하기 위한 운영체제로 가상 머신이 서버 하드웨어를 가상화하는 방식과 비슷하게 컨테이너는 서버 운영 체제를 가상화합니다.Docker를 사용하면 코드를 더 빨리 전달하고, 애플리케이션 운영을 표준화하고, 코드를 원활하게 이동하고, 리소스 사용률을 높여 비용을 절감할 수 있습니다.
+	
+	- **키바나 (Kibana)**
+	
+	  - Kibana는 Elasticsearch를 가장 쉽게 시각화 할 수 있는 도구입니다. 엘라스틱 서치와 마찬가지로 **Elastic license**를 라이센스로 사용합니다. 검색, 그리고 aggregation의 집계 기능을 이용해 Elasticsearch로 부터 문서, 집계 결과 등을 불러와 웹 도구로 시각화를 합니다. Discover, Visualize, Dashboard 3개의 기본 메뉴와 다양한 App 들로 구성되어 있고, 플러그인을 통해 App의 설치가 가능합니다.
+	
+	- Discover
+	
+	  - Discover는 Elasticsearch에 색인된 소스 데이터들의 검색을 위한 메뉴입니다. 검색 창에 질의문을 통해 데이터를 간편하게 검색, 필터링 할 수 있으며, 검색된 데이터의 원본 문서를 확인하거나 보고 싶은 필드만 선택해서 테이블 형태로 조회가 가능합니다. 시계열(time series) 기반의 로그 데이터인 경우 시간 히스토그램 그래프를 통해 시간대별 로그 수도 표시됩니다.
+	
+	- Visualize
+	
+	  - Visualize는 aggregation 집계 기능을 통해 조회된 데이터의 통계를 다양한 차트로 표현할 수 있는 패널을 만드는 메뉴입니다. 영역차트, 바차트, 파이차트, 라인차트 등 다양한 시각화 도구들의 사용이 가능하며 여기서 만들어진 패널들을 조합해서 대시보드를 만들게 됩니다.
+	
+	- Dashboard
+	  - Visualize 메뉴에서 만들어진 시각화 도구들을 조합해서 대시보드 화면을 만들고 저장, 불러오기 등을 할 수 있는 메뉴입니다. 다른 메뉴들과 마찬가지로 검색 창에 쿼리를 입력하거나 시각화 도구들을 클릭해서 조회할 데이터들의 필터링이 가능하고, URL로 대시보드를 다른 사람들과 공유하거나 json 형식으로 내보내고 불러오기 등이 가능합니다.
+	
+	- **kibana 시작하는법**
+	
+	  - Kibana를 사용하면 Elastic 검색에 쉽게 요청을 보내고 대화식으로 데이터를 분석, 시각화 및 관리할 수 있습니다.
+	
+	    1.새 터미널 세션에서 Kibana를 시작하고 엘라스틱서치 컨테이너에 연결합니다.
+	
+	  ```
+	  docker pull docker.elastic.co/kibana/kibana:{version} (1)
+	  docker run --name kibana --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:{version}
+	  ```
+	  - 버전을 실행하려는 kibana버전으로 바꿉니다.
+	
+	  - kibana를 시작하면 고유한 URL터미널에 출력됩니다.
+	
+	    2. kibana에 엑세스하려면 브라우저에서 생성된 URL을 엽니다.
+	
+	       - A.엘라스틱서치를 시작할 때 복사한 등록 토큰을 붙여넣고 버튼을 클릭하여 Kibana 인스턴스를 엘라스틱서치와 연결합니다.
+	
+	       - B.엘라스틱서치를 시작할 때 생성된 암호로 Kibana에 Elastic 사용자로 로그인합니다.
 
 
 ​      
@@ -853,173 +850,160 @@
 - ### selenium: 이미지를 크롤링하기 오픈소스
 
 
-   - selenium의 구성
+     - selenium의 구성
+
+       - 웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
 
 
-       웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
+     - Selenium IDE 
+           - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.  Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
+           - Selenium RC - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
+          - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
+          - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
+          - Android 애플리케이션 테스트를 지원하지 않습니다.
 
-   - Selenium IDE - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.  Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
+              - Selenium Webdriver - 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
+          - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
+          - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
+          - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
 
-    - Selenium RC - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
-        - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
-        - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
-        - Android 애플리케이션 테스트를 지원하지 않습니다.
+              - Selenium Grid -  시스템에서 다양한 웹 브라우져를 동시 (parallel)에 테스팅하는 기능을 제공합니다.
 
-    - Selenium Webdriver - 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
-        - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
-        - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
-        - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
 
-    - Selenium Grid -  시스템에서 다양한 웹 브라우져를 동시 (parallel)에 테스팅하는 기능을 제공합니다.
-
-   -  Selenium의 특징
-        - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
-        - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
-        - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
-        - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
-        - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
-        - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
-
-     -  Selenium을 사용하기 위한 환경설정
-
-          스크래핑에서는 웹 앱을 테스트 하는 용도로 개발된 Selenium을 응용해서 스크래핑에 사용합니다. 특히 웹드라이버 (Webdriver)를 사용해서 파이썬으로 웹 브라우져를 제어합니다. 가져올 데이터가 존재하는 웹페이지로 이동하고, 필요한 데이터를 선택해서 파이썬으로 가져오는 겁니다. 데이터를 선택할 때는 셀렉터를 사용한다. 이러한 일들을 실습하기 위해서는 다음의 환경설정을 완료 해야합니다.
-
-        - 사용할 웹브라우저 설치(최신버전)
-        - 크롬 웹드라이버 다운로드
-        - 파이썬 셀레늄 모듈 설치
-
-     - Selenium 크롤링 과정
-     
-           1. Selenium 라이브러리 설치
-     
-               `pip install selenium`
-     
-     
-          2. Chrome Driver 설치
-     
-          (https://chromedriver.chromium.org/downloads)에서 자신의 크롬 브라우져 버전과 맞는 chromedriver를 다운 받습니다.
-     
-          3. Selenium 실행
-             - 드라이버를 열고 검색창에 자신이 검색할 검색어를 쳐보자.
-     
-          ```python
-          driver = webdriver.Chrome() # 크롬드라이버 설치한 경로 작성 필요 
-          driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl") # 구글 이미지 
-          ```
-     
-          - 검색 url
-     
-          ```python
-          elem = driver.find_element_by_name("q") #구글 검색창 선택
-          elem.send_keys(name) # 검색창에 검색할 내용(name)넣기
-          elem.send_keys(Keys.RETURN) # 검색할 내용을 넣고 enter를 치는것!
-          ```
-     
-     
-           4. 사진의 url 확인
-     
-                ```python
-                  4.    imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd") #작게 뜬 이미지들 모두 선택(elements)
-                        for img in imgs:
-                             try:
-                                img.click()
-                                time.sleep(2)
-                                imgUrl = driver.find_element_by_xpath(
-                                        '//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute(
-                                          "src") # 크게 뜬 이미지 선택하여 "src" 속성을 받아옴
-                             path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\" #저장할 경로
-                                 urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg") // 
-                                   count = count + 1
-                             if count > 260: #다운 받을 이미지 갯수 조정
-                               break
+     -  Selenium의 특징
+          - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
+          
+          - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
+          
+          - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
+          
+       - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
+       
+       - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
+       
+       - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
+       
+       -  Selenium을 사용하기 위한 환경설정
+       
+            스크래핑에서는 웹 앱을 테스트 하는 용도로 개발된 Selenium을 응용해서 스크래핑에 사용합니다. 특히 웹드라이버 (Webdriver)를 사용해서 파이썬으로 웹 브라우져를 제어합니다. 가져올 데이터가 존재하는 웹페이지로 이동하고, 필요한 데이터를 선택해서 파이썬으로 가져오는 겁니다. 데이터를 선택할 때는 셀렉터를 사용한다. 이러한 일들을 실습하기 위해서는 다음의 환경설정을 완료 해야합니다.
+       
+          - 사용할 웹브라우저 설치(최신버전)
+          - 크롬 웹드라이버 다운로드
+          - 파이썬 셀레늄 모듈 설치
+       
+       - Selenium 크롤링 과정
+       
+         1. Selenium 라이브러리 설치
+       
+            - `pip install selenium`
+         
+         2. Chrome Driver 설치
+         
+            - (https://chromedriver.chromium.org/downloads)에서 자신의 크롬 브라우져 버전과 맞는 chromedriver를 다운 받습니다.
+         
+         3. Selenium 실행
+         
+            - 드라이버를 열고 검색창에 자신이 검색할 검색어를 쳐보자.
+         
+            ```
+            driver = webdriver.Chrome() # 크롬드라이버 설치한 경로 작성 필요 
+            driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl") # 구글 이미지 
+            ```
+         
+            - 검색 url
+         
+            ```
+            elem = driver.find_element_by_name("q") #구글 검색창 선택
+            elem.send_keys(name) # 검색창에 검색할 내용(name)넣기
+            elem.send_keys(Keys.RETURN) # 검색할 내용을 넣고 enter를 치는것!
+            ```
+         
+         4. 사진의 url 확인
+         
+            ```python
+            imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd") #작게 뜬 이미지들 모두 선택(elements)
+            for img in imgs:
+                try:
+                    img.click()
+                    time.sleep(2)
+                    imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
+                    # 크게 뜬 이미지 선택하여 "src" 속성을 받아옴
+                    path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\" 
+                    #저장할 경로
+                    rllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg") // count = count + 1
+                    if count > 260: 
+                    #다운 받을 이미지 갯수 조정
+                        break
                         except:
-                               pass
-                ```
-     
-           5. 최종 파이썬 코드
-     
-               ```python
-               from selenium import webdriver
-               from selenium.webdriver.common.keys import Keys
-               import time
-               import urllib.request
-               import os
-               ```
-               
-               - 폴더 생성 여부
-               
-               ```python
-               def createDirectory(directory):
-                   try:
-                       if not os.path.exists(directory):
-                           os.makedirs(directory)
-                       except OSError:
-                           print("Error: Failed to create the directory.")
-                           
-               def crawling_img(name):
-                   driver = webdriver.Chrome()
-                   driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl")
-                   elem = driver.find_element_by_name("q")
-                   elem.send_keys(name)
-                   elem.send_keys(Keys.RETURN)
-                        try:
-                           if not os.path.exists(directory):
-                               os.makedirs(directory)
-                           except OSError:
-                               print("Error: Failed to create the directory.")
-               ```
-               
-               ```python
-                def crawling_img(name):
-                      driver = webdriver.Chrome()
-                      driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl")
-                      elem = driver.find_element_by_name("q")
-                      elem.send_keys(name)
-                      elem.send_keys(Keys.RETURN)
-               ```
-               
-               
-               
-               ```python
-               SCROLL_PAUSE_TIME = 1 # Get scroll height
-               last_height = driver.execute_script("return document.body.scrollHeight")  # 브라우저의 높이를 자바스크립트로 찾음
-               while True:
-                   # Scroll down to bottom
-                   driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # 브라우저 끝까지 스크롤을 내림
-                   # Wait to load page
-                   time.sleep(SCROLL_PAUSE_TIME)
-                   # Calculate new scroll height and compare with last scroll height
-                   new_height = driver.execute_script("return document.body.scrollHeight")
-                   if new_height == last_height:
-                       try:
-                           driver.find_element_by_css_selector(".mye4qd").click()
-                       except:
-                           break
-                       last_height = new_height
-                       
-                       imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
-                       dir = "폴더명" + name
-                       createDirectory(dir) #폴더 생성
-                       count = 1
-                       for img in imgs:
-                           try:
-                               img.click()
-                               time.sleep(2)
-                               imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
-                        path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\"
-                       urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg")
-                       count = count + 1
-                       if count >= 260:
-                           break
-                           except:
-                               pass
-               driver.close()
-               함수2 = ["넣고 싶은 검색어"]
-               
-               for 함수1 in 함수2:
-                   crawling_img(함수1)
-               ```
-     
+                            pass
+            ```
+         
+         5. 최종 파이썬 코드
+         
+            ```python
+            from selenium import webdriver
+            from selenium.webdriver.common.keys import Keys
+            import time
+            import urllib.request
+            import os
+            ```
+         
+            - 폴더 생성 여부
+         
+            ```python
+            def createDirectory(directory):
+                try:
+                    if not os.path.exists(directory):
+                        os.makedirs(directory)
+                    except OSError:
+                        print("Error: Failed to create the directory.")
+                        
+            def crawling_img(name):
+                driver = webdriver.Chrome()
+                driver.get("https://www.google.co.kr/imghphl=ko&tab=wi&authuser=0&ogbl")
+                elem = driver.find_element_by_name("q")
+                elem.send_keys(name)
+                elem.send_keys(Keys.RETURN)
+                # Get scroll height
+                SCROLL_PAUSE_TIME = 1 
+                 # 브라우저의 높이를 자바스크립트로 찾음
+                last_height = driver.execute_script("return document.body.scrollHeight") 
+                  while True:
+                        # Scroll down to bottom == 브라우저 끝까지 스크롤을 내림
+                        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                        # Wait to load page
+                        time.sleep(SCROLL_PAUSE_TIME)
+                        # Calculate new scroll height and compare with last scroll height
+                        new_height = driver.execute_script("return document.body.scrollHeight")
+                        if new_height == last_height:
+                            try:
+                             driver.find_element_by_css_selector(".mye4qd").click()
+                            except:
+                                break
+                                last_height = new_height
+                                imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
+                          dir = "폴더명" + name
+                          createDirectory(dir) #폴더 생성
+                          count = 1
+                          for img in imgs:
+                              try:
+                                  img.click()
+                                  time.sleep(2)
+                                  imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
+                                    path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\"urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg")
+                                    count = count + 1
+                                    if count >= 260:
+                                        break
+                                        except:
+                                            pass
+                  driver.close()
+                  함수2 = ["넣고 싶은 검색어"]
+                  
+                  for 함수1 in 함수2:
+                      crawling_img(함수1)
+            ```
+       
+
 
 
 
