@@ -14,6 +14,9 @@
 
 ## 유사 서비스 분석
 
+우리 프로젝트와 유사한 서비스로는 다나와(http://www.danawa.com/)와 네이버 쇼핑(https://shopping.naver.com/) 플랫폼이 있다. 이 두 플랫폼 모두 우리가 원하는 물건들을 검색할 수 있고 상품 아래에 비슷한 유형의 물건을 알고리즘으로 보여준다.
+
+
 ## 시스템 설계 내용 요약
 
 - 사용된 오픈소스 목록
@@ -45,9 +48,14 @@
     - 깃허브 링크: https://github.com/apache/zeppelin
     - 라이선스: [Apache License 2.0](https://github.com/apache/zeppelin/blob/master/LICENSE)
 
-  - < 이미지 크롤링 오픈소스 >
+  - selenium - 이미지 크롤링하기 위한 오픈소스
 
-    - 간단한 설명
+    -  웹 애플리케이션의 소프트웨어 테스트 프레임워크이다.
+
+    -  라이선스: Apache License 2.0 
+
+    -  깃허브 : https://github.com/SeleniumHQ
+
 
   - RabbitMQ : 채팅 서비스 구현을 위한 오픈소스
     - rabbitMQ는 AMQP를 따르는 오픈소스 메시지 브로커 프로젝트입니다. 메시지 브로커라고 불리며, 메세지를 많은 사용자에게 전달하거나, 요청에 대한 처리 시간이 길 때, 요청을 다른 API에게 위임하고 빠른 응답을 할 때 많이 사용합니다.
@@ -556,9 +564,146 @@
     - IPython등은 데이터 분석/연구 결과를 정리해서 보여주기 위한 연구 노트 같은 기능제공에 초점이 맞춰져 있지만, Zeppelin은 초기부터 분석 결과를 Dashboard 형태로 여러 사람이 공유할 수 있게 하도록 하는 데 초점이 맞춰져 있다. Paragraph 우측 상단에 Export/Share 버튼을 사용하면 그 Paragraph를 IFrame을 이용하여 다른 Website에 Embedded 시켜줄 수 있다. 또한, %html, %md (markdown)등의 자바스크립트 삽입 및 문서 스타일링도 지원하기 때문에 자신의 입맛에 맞게 버튼을 달거나 분석 결과를 다른 모양으로 표현하는 것도 가능하다. 이런 기본 기능들이 맘에 안 든다면 새로운 플러그인을 작성하거나 D3.js를 건드려서 나에게 맞는 형태로 수정해줄 수도 있다. 물론 다소 빌드가 까다롭기 때문에 이 부분은 현재는 쉽진 않지만, 현재 시험적용 중인 Helium Application 기능이 안정화 되면좀 더 확장성이 좋아질 것이라 기대한다.
   -
 
-- ### < 이미지 크롤링 오픈소스 >
 
-  - 설명:
+- ### selenium: 이미지를 크롤링하기 오픈소스
+
+-  selenium의 구성
+
+       웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
+
+
+     - Selenium IDE - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.  Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
+     - Selenium RC - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
+         - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
+         - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
+         - Android 애플리케이션 테스트를 지원하지 않습니다.
+     - Selenium Webdriver - 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
+         - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
+         - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
+         - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
+     - Selenium Grid -  시스템에서 다양한 웹 브라우져를 동시 (parallel)에 테스팅하는 기능을 제공합니다.
+
+-  Selenium의 특징
+     - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
+     - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
+     - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
+     - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
+     - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
+     - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
+
+  -  Selenium을 사용하기 위한 환경설정
+
+       스크래핑에서는 웹 앱을 테스트 하는 용도로 개발된 Selenium을 응용해서 스크래핑에 사용합니다. 특히 웹드라이버 (Webdriver)를 사용해서 파이썬으로 웹 브라우져를 제어합니다. 가져올 데이터가 존재하는 웹페이지로 이동하고, 필요한 데이터를 선택해서 파이썬으로 가져오는 겁니다. 데이터를 선택할 때는 셀렉터를 사용한다. 이러한 일들을 실습하기 위해서는 다음의 환경설정을 완료 해야합니다.
+
+     - 사용할 웹브라우저 설치(최신버전)
+     - 크롬 웹드라이버 다운로드
+     - 파이썬 셀레늄 모듈 설치
+
+  -  Selenium 크롤링 과정
+
+ 1. Selenium 라이브러리 설치
+
+        pip install selenium
+
+ 2. Chrome Driver 설치
+
+         (https://chromedriver.chromium.org/downloads)에서 자신의 크롬 브라우져 버전과 맞는 chromedriver를 다운 받습니다.
+
+ 3. Selenium 실행
+
+        드라이버를 열고 검색창에 자신이 검색할 검색어를 쳐보자.
+        driver = webdriver.Chrome() # 크롬드라이버 설치한 경로 작성 필요 
+        driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl") # 구글 이미지 검색 url
+        elem = driver.find_element_by_name("q") #구글 검색창 선택
+        elem.send_keys(name) # 검색창에 검색할 내용(name)넣기
+        elem.send_keys(Keys.RETURN) # 검색할 내용을 넣고 enter를 치는것!
+
+
+ 4. 사진의 url 확인
+
+         imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd") #작게 뜬 이미지들 모두 선택(elements)
+         for img in imgs:
+              try:
+                 img.click()
+                 time.sleep(2)
+                 imgUrl = driver.find_element_by_xpath(
+                         '//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute(
+                           "src") # 크게 뜬 이미지 선택하여 "src" 속성을 받아옴
+              path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\" #저장할 경로
+                  urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg") // 
+                    count = count + 1
+              if count > 260: #다운 받을 이미지 갯수 조정
+                break
+         except:
+                pass
+
+
+
+ 5. 최종 파이썬 코드
+
+        from selenium import webdriver
+        from selenium.webdriver.common.keys import Keys
+        import time
+        import urllib.request
+        import os
+
+        #폴더 생성 여부
+        def createDirectory(directory):
+          try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        except OSError:
+            print("Error: Failed to create the directory.")
+
+        def crawling_img(name):
+            driver = webdriver.Chrome()
+            driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl")
+            elem = driver.find_element_by_name("q")
+            elem.send_keys(name)
+            elem.send_keys(Keys.RETURN)
+
+          #
+          SCROLL_PAUSE_TIME = 1
+          # Get scroll height
+          last_height = driver.execute_script("return document.body.scrollHeight")  # 브라우저의 높이를 자바스크립트로 찾음
+          while True:
+              # Scroll down to bottom
+              driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # 브라우저 끝까지 스크롤을 내림
+              # Wait to load page
+              time.sleep(SCROLL_PAUSE_TIME)
+              # Calculate new scroll height and compare with last scroll height
+              new_height = driver.execute_script("return document.body.scrollHeight")
+              if new_height == last_height:
+                  try:
+                      driver.find_element_by_css_selector(".mye4qd").click()
+                  except:
+                      break
+              last_height = new_height
+
+          imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
+          dir = "폴더명" + name
+
+          createDirectory(dir) #폴더 생성
+          count = 1
+          for img in imgs:
+              try:
+                  img.click()
+                  time.sleep(2)
+                  imgUrl = driver.find_element_by_xpath(
+                      '//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute(
+                      "src")
+                  path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\"
+                  urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg")
+                  count = count + 1
+                  if count >= 260:
+                      break
+              except:
+                  pass
+          driver.close()
+          함수2 = ["넣고 싶은 검색어"]
+
+          for 함수1 in 함수2:
+              crawling_img(함수1)
 
 - ### RabbitMQ : AMQP를 따르는 오픈소스 메시지 브로커 시스템
 
