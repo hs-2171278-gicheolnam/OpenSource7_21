@@ -125,136 +125,116 @@
 
 ## 사용된 오픈소스에 대한 설명
 
-- ### React, Next.js: GUI 구현을 위한 오픈소스
+### React, Next.js: GUI 구현을 위한 오픈소스
 
+- Next.js: 고속 **웹 애플리케이션**을 만들기 위한 구성 요소를 제공하는 React의 프레임워크입니다.
 
-    - Next.js: 고속 **웹 애플리케이션**을 만들기 위한 구성 요소를 제공하는 React의 프레임워크입니다.
-    
-      - 프레임워크: React에 필요한 툴과 구성을 처리하고 애플리케이션에 추가구조, 기능 및 최적화를 제공하는 것을 의미합니다.
+  - 프레임워크: React에 필요한 툴과 구성을 처리하고 애플리케이션에 추가구조, 기능 및 최적화를 제공하는 것을 의미합니다.
+- React: **대화형** 사용자 **인터페이스**를 구축하기 위한 **JavaScript** 라이브러리입니다.
 
+  - 컴포넌트라고 불리는 스니펫을 사용해 복잡한 UI를 구성하도록 돕습니다.
+    - 스니펫: 재사용 가능한 소스코드, 기계어, 텍스트의 작은 부분을 의미합니다.
 
+- 웹 응용프로그램 구성요소
 
-    - React: **대화형** 사용자 **인터페이스**를 구축하기 위한 **JavaScript** 라이브러리입니다.
-    
-      - 컴포넌트라고 불리는 스니펫을 사용해 복잡한 UI를 구성하도록 돕습니다.
-        - 스니펫: 재사용 가능한 소스코드, 기계어, 텍스트의 작은 부분을 의미합니다.
+  - Graphic User Interface: 사용자가 응용프로그램을 사용하고 상호작용하는 방법
+  - 라우팅: 사용자가 응용 프로그램의 여러 부분을 이동하는 방법
+  - 인프라 스트럭쳐: 애플리케이션 코드를 전개, 저장 및 실행
+  - 퍼포먼스: 최종 사용자에 맞게 애플리케이션을 최적화하는 방법
+  
+- #### 앱을 만들기 위한 기본 사항
 
+  - React를 사용해 완전한 웹 서비스를 구축하기 위해 필요한 세부사항입니다.
+    - 코드는 webpack과 같은 번들러를 사용하여 번들링되고, Babel과 같은 컴파일러를 사용해 변환되어야 합니다.
+    - 코드 분할과 같은 생산 최적화를 수행해야 합니다.
+    - 성능 및 SEO를 위해 일부 페이지를 정적으로 사전 렌더링할 수 있습니다.서버 측 렌더링이나 클라이언트 측 렌더링을 사용할 수도 있습니다.
+    - React 앱을 데이터 저장소에 연결하기 위해 일부 서버측 코드를 작성해야할 수 있습니다.
+    - 해당 문제점들은 Framework를 통해 해결할 수 있습니다.
+  - React Framework가 제공하는 기능들
+    - 페이지 기반 라우팅 시스템
+    - 페이지별로 지원되는 사전 렌더링, 정적 생성 및 서버 측 렌더링
+    - 자동 코드 분할을 통한 더 빠른 페이지 로드
+    - 최적화된 프리페치를 사용한 클라이언트 측 라우팅
 
+- #### React 사용
 
-    - 웹 응용프로그램 구성요소
-    
-      - Graphic User Interface: 사용자가 응용프로그램을 사용하고 상호작용하는 방법
-      - 라우팅: 사용자가 응용 프로그램의 여러 부분을 이동하는 방법
-      - 인프라 스트럭쳐: 애플리케이션 코드를 전개, 저장 및 실행
-      - 퍼포먼스: 최종 사용자에 맞게 애플리케이션을 최적화하는 방법
+  - React를 사용하여 UI를 구축한 후 Next.js 기능을 점진적으로 채택해 웹 응용 프로그램 구성 요소인 라우팅, 데이터 가져오기, 통합 등의 일반적인 애플리케이션 요구사항을 해결하면서 개발자와 최종 사용자 환경을 개선할 수 있습니다.
 
+  - 사용자가 웹 페이지를 방문하면 서버는 사용자에게 HTML 파일을 브라우저에 반환합니다. 그런 다음 브라우저는 HTML 파일을 읽어 DOM을 구성합니다. 이 때 DOM은 코드와 사용자 인터페이스를 연결하는 브리지 역할을 합니다.
 
+  - React: 선언적 UI 라이브러리
 
-    - #### 앱을 만들기 위한 기본 사항
-    
-      - React를 사용해 완전한 웹 서비스를 구축하기 위해 필요한 세부사항입니다.
-        - 코드는 webpack과 같은 번들러를 사용하여 번들링되고, Babel과 같은 컴파일러를 사용해 변환되어야 합니다.
-        - 코드 분할과 같은 생산 최적화를 수행해야 합니다.
-        - 성능 및 SEO를 위해 일부 페이지를 정적으로 사전 렌더링할 수 있습니다.서버 측 렌더링이나 클라이언트 측 렌더링을 사용할 수도 있습니다.
-        - React 앱을 데이터 저장소에 연결하기 위해 일부 서버측 코드를 작성해야할 수 있습니다.
-        - 해당 문제점들은 Framework를 통해 해결할 수 있습니다.
-      - React Framework가 제공하는 기능들
-        - 페이지 기반 라우팅 시스템
-        - 페이지별로 지원되는 사전 렌더링, 정적 생성 및 서버 측 렌더링
-        - 자동 코드 분할을 통한 더 빠른 페이지 로드
-        - 최적화된 프리페치를 사용한 클라이언트 측 라우팅
+    - 개발자가 사용자 인터페이스를 구축하는 데 도움이 되는 선언적 라이브러리로 React가 사용 됩니다.
 
+    - 개발자로서 사용자 인터페이스에 어떤 일을 처리하기를 원하는지 React에게 알릴 수 있고, React는 개발자를 대신해 DOM을 업데이트하는 단계를 알아냅니다.
 
+    - 일반적으로 JavaScript로 DOM을 직접 조작하는 대신 react-dom 라이브러리의 ReactDOM.render() 메서드를 사용하여 제목을 지정할 수 있습니다.
 
-    - #### React 사용
-    
-      - React를 사용하여 UI를 구축한 후 Next.js 기능을 점진적으로 채택해 웹 응용 프로그램 구성 요소인 라우팅, 데이터 가져오기, 통합 등의 일반적인 애플리케이션 요구사항을 해결하면서 개발자와 최종 사용자 환경을 개선할 수 있습니다.
-    
-      - 사용자가 웹 페이지를 방문하면 서버는 사용자에게 HTML 파일을 브라우저에 반환합니다. 그런 다음 브라우저는 HTML 파일을 읽어 DOM을 구성합니다. 이 때 DOM은 코드와 사용자 인터페이스를 연결하는 브리지 역할을 합니다.
-    
-      - React: 선언적 UI 라이브러리
-    
-        - 개발자가 사용자 인터페이스를 구축하는 데 도움이 되는 선언적 라이브러리로 React가 사용 됩니다.
-    
-        - 개발자로서 사용자 인터페이스에 어떤 일을 처리하기를 원하는지 React에게 알릴 수 있고, React는 개발자를 대신해 DOM을 업데이트하는 단계를 알아냅니다.
-    
-        - 일반적으로 JavaScript로 DOM을 직접 조작하는 대신 react-dom 라이브러리의 ReactDOM.render() 메서드를 사용하여 제목을 지정할 수 있습니다.
-    
-          - 이 때 사용하는 코드는 JS가 아닌 JSX이므로 브라우저가 이해하지 못합니다.
-          - 따라서 JSX 코드를 일반 JS로 변환하기 위해서는 Babel과 같은 JavaScript 컴파일러가 필 요합니다.
-          - 추가로 스크립트의 type을 text/jsx로 지정합니다.
-    
-          ```
-          <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-          <script type="text/jsx">
-          ```
-    
-        - React는 사용자를 대신해 작업을 수행하는 재사용 가능한 코드 스니펫을 포함하는 라이브러리입니다.
-    
-        - React는 hooks라는 함수 세트를 사용해 구성요소의 상태와 같은 논리를 추가할 수 있습니다. 사용자의 상호작용에 의해 변화하는 UI의 모든 정보라고 할 수 있습니다.
-    
-          - ex) React의 hooks의 함수세트 중 useState() 메서드를 사용 사용자가 좋아요 버튼을 클릭한 횟수를 저장하고 증가시킬 수 있습니다.
-    
-      - React 동작 방식
-    
-        - 유저가 브라우저를 통해 앱에 접속합니다.
-        - 앱은 브라우저에게 javascript 정보가 들어있는 빈 HTML 문서를 전달합니다.
-        - 브라우저는 javascript 파일을 다운로드하고 동시에 유저는 빈 화면을 봅니다.
-        - 브라우저에서 js 파일의 다운로드가 끝나면 리액트 코드가 있는 js 파일을 실행합니다.
-        - 브라우저에 있는 리액트 코드가 UI를 렌더링합니다.
-        - 유저는 앱이 보여주고자 했던 화면을 보게 됩니다.
-    
-      - Next 동작 방식
-    
-        - 유저가 브라우저를 통해 앱에 접속합니다.
-        - 서버에서 리액트를 실행합니다.
-        - 리액트는 UI를 렌더링합니다.
-        - 렌더링된 결과를 통해 브라우저에게 HTML을 제공합니다. 이 때 유저는 앱의 초기화면을 보게 됩니다.
-        - 이후 브라우저는 리액트 코드가 있는 JS 파일을 다운받고 실행시킵니다.
+      - 이 때 사용하는 코드는 JS가 아닌 JSX이므로 브라우저가 이해하지 못합니다.
+      - 따라서 JSX 코드를 일반 JS로 변환하기 위해서는 Babel과 같은 JavaScript 컴파일러가 필 요합니다.
+      - 추가로 스크립트의 type을 text/jsx로 지정합니다.
 
+      ```java
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      <script type="text/jsx">
+      ```
+      
+    - React는 사용자를 대신해 작업을 수행하는 재사용 가능한 코드 스니펫을 포함하는 라이브러리입니다.
+    
+    - React는 hooks라는 함수 세트를 사용해 구성요소의 상태와 같은 논리를 추가할 수 있습니다. 사용자의 상호작용에 의해 변화하는 UI의 모든 정보라고 할 수 있습니다.
+    
+      - ex) React의 hooks의 함수세트 중 useState() 메서드를 사용 사용자가 좋아요 버튼을 클릭한 횟수를 저장하고 증가시킬 수 있습니다.
+    
+  - Next 동작 방식
+  
+    - 유저가 브라우저를 통해 앱에 접속합니다.
+    - 서버에서 리액트를 실행합니다.
+    - 리액트는 UI를 렌더링합니다.
+    - 렌더링된 결과를 통해 브라우저에게 HTML을 제공합니다. 이 때 유저는 앱의 초기화면을 보게 됩니다.
+    - 이후 브라우저는 리액트 코드가 있는 JS 파일을 다운받고 실행시킵니다
 
+- #### 앱 구현
 
-    - #### 앱 구현
-    
-      - React 와 Next.js를 사용해 로그인하기
-    
-        - 컴포넌트를 만들어 사용
-          - 유저에게 보여질 UI를 담고 있는 디렉터리에서 component 폴더 생성 후 Head.js 파일과 Intro.js 파일을 생성합니다.
-          - import를 사용해 생성한 컴포넌트를 가져옵니다.
-        - nodemon을 설치한 후 서버에서 실행합니다.
-        - SQL 연결
-    
-        ```
-        $ cd /usr/local/mysql/bin/
-        ```
-    
-        - 해당 폴더로 이동하여 아래 커멘드 실행
-    
-        ```
-        $ ./mysql -u root -p
-        ```
-    
-        - 비밀번호를 입력하여 MySQL 데이터베이스에 접속합니다.
-    
-      - 데이터베이스, 테이블, 데이터 생성
-    
-        - 데이터베이스를 생성한 후 데이터 베이스를 선택합니다.
-        - 이후 테이블을 만들 수 있습니다.
-    
-      - Node.js에 SQL 모듈 설치 및 설정
-    
-        - server 폴더에 sql 모듈을 설치하고 불러옵니다.
-        - dataBase 변수를 생성하여 연결 정보를 입력합니다.
-    
-      - 데이터 넣고 가져오기
-    
-        - 데이터 넣기
-        - 넣은 데이터 확인하기
-        - 데이터베이스의 값들 가져오기
-        - 사용자 폴더에서 가져오기
-        - 서버에서 3001 포트 보낸 것을 리액트로 가져온다.
+  - React 와 Next.js를 사용해 로그인하기
 
+    - 컴포넌트를 만들어 사용
 
+      - 유저에게 보여질 UI를 담고 있는 디렉터리에서 component 폴더 생성 후 Head.js 파일과 Intro.js 파일을 생성합니다.
+      - import를 사용해 생성한 컴포넌트를 가져옵니다.
+
+    - nodemon을 설치한 후 서버에서 실행합니다.
+
+    - SQL 연결
+
+      ```
+      $ cd /usr/local/mysql/bin/
+      ```
+
+    - 해당 폴더로 이동하여 아래 커멘드 실행
+
+      ```
+      $ ./mysql -u root -p
+      ```
+
+    - 비밀번호를 입력하여 MySQL 데이터베이스에 접속합니다.
+
+  - 데이터베이스, 테이블, 데이터 생성
+
+    - 데이터베이스를 생성한 후 데이터 베이스를 선택합니다.
+    - 이후 테이블을 만들 수 있습니다.
+
+  - Node.js에 SQL 모듈 설치 및 설정
+
+    - server 폴더에 sql 모듈을 설치하고 불러옵니다.
+    - dataBase 변수를 생성하여 연결 정보를 입력합니다.
+
+  - 데이터 넣고 가져오기
+
+    - 데이터 넣기
+    - 넣은 데이터 확인하기
+    - 데이터베이스의 값들 가져오기
+    - 사용자 폴더에서 가져오기
+    - 서버에서 3001 포트 보낸 것을 리액트로 가져온다.
 
 
 
@@ -540,65 +520,72 @@
 	  "_seq_no" : 1,
     "_primary_term" : 1
     }
-	```
-	
-	- 실수로 기존 도큐먼트가 덮어씌워지는 것을 방지하기 위해서는 입력 명령에 _doc 대신 _create 를 사용해서 새로운 도큐먼트의 입력만 허용하는 것이 가능합니다.
+	  ```
+	  
+	  - 실수로 기존 도큐먼트가 덮어씌워지는 것을 방지하기 위해서는 입력 명령에 _doc 대신 _create 를 사용해서 새로운 도큐먼트의 입력만 허용하는 것이 가능합니다.
+	  
 	  - 조회 (GET)
+	  
 	    - GET 메서드로 가져올 도큐먼트의 URL을 입력하면 도큐먼트의 내용을 가져옵니다. 다양한 정보가 함께 표시되며 문서의 내용은 _source 항목에 나타납니다.
-	- 도큐먼트 조회
-	```
-	GET my_index/_doc/1
-	```
-	- 도큐먼트 조회결과
-	
-	```
-	{
-	 "_index" : "my_index",
-	 "_type" : "_doc",
-	 "_id" : "1",
-	 "_version" : 2,
-	 "_seq_no" : 1,
-	 "_primary_term" : 1,
-	 "found" : true,
-	 "_source" : {
-	   "name" : "Jongmin Kim",
-	   "message" : "안녕하세요 Elasticsearch"
-	 }
-	}
-	```
-	
-	- 수정 (POST)
-	
-	  - POST 메서드는 PUT 메서드와 유사하게 데이터 입력에 사용이 가능합니다. 도큐먼트를 입력할 때 POST 메서드로 <인덱스>/_doc 까지만 입력하게 되면 자동으로 임의의 도큐먼트id 가 생성됩니다. 도큐먼트id의 자동 생성은 PUT 메서드로는 동작하지 않습니다.
-	
-	  - 수정
-	
-	```
-	    POST my_index/_doc
-	    {
-	     "name":"Jongmin Kim",
-	     "message":"안녕하세요 Elasticsearch"
-	    }
+	  
+	  - 도큐먼트 조회
+	  
 	    ```
-	
-	  - 수정결과
-	
+	    GET my_index/_doc/1
+	    ```
+	  
+	  - 도큐먼트 조회결과
+	  
 	    ```
 	    {
 	     "_index" : "my_index",
 	     "_type" : "_doc",
-	     "_id" : "ZuFv12wBspWtEG13dOut",
-	     "_version" : 1,
-	     "result" : "created",
-	     "_shards" : {
-	       "total" : 2,
-	       "successful" : 1,
-	       "failed" : 0
-	    },
-	    "_seq_no" : 0,
-	    "_primary_term" : 1
+	     "_id" : "1",
+	     "_version" : 2,
+	     "_seq_no" : 1,
+	     "_primary_term" : 1,
+	     "found" : true,
+	     "_source" : {
+	       "name" : "Jongmin Kim",
+	       "message" : "안녕하세요 Elasticsearch"
+	     }
 	    }
 	    ```
+	  
+	  - 수정 (POST)
+	  
+	    - POST 메서드는 PUT 메서드와 유사하게 데이터 입력에 사용이 가능합니다. 도큐먼트를 입력할 때 POST 메서드로 <인덱스>/_doc 까지만 입력하게 되면 자동으로 임의의 도큐먼트id 가 생성됩니다. 도큐먼트id의 자동 생성은 PUT 메서드로는 동작하지 않습니다.
+	  
+	    - 수정
+	  
+	      ```
+	      POST my_index/_doc
+	      {
+	       "name":"Jongmin Kim",
+	       "message":"안녕하세요 Elasticsearch"
+	      }
+	      ```
+	  
+	    - 수정결과
+	  
+	      ```
+	      {
+	       "_index" : "my_index",
+	       "_type" : "_doc",
+	       "_id" : "ZuFv12wBspWtEG13dOut",
+	       "_version" : 1,
+	       "result" : "created",
+	       "_shards" : {
+	         "total" : 2,
+	         "successful" : 1,
+	         "failed" : 0
+	      },
+	      "_seq_no" : 0,
+	      "_primary_term" : 1
+	      }
+	      ```
+	  
+	      
 	
 	- **도커 (Docker)**
 	
@@ -848,159 +835,164 @@
 - ### selenium: 이미지를 크롤링하기 오픈소스
 
 
-     - selenium의 구성
-    
-       - 웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
+  - selenium의 구성
 
 
-     - Selenium IDE 
-           - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다.  Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
-           - Selenium RC - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
-          - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
-          - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
-          - Android 애플리케이션 테스트를 지원하지 않습니다.
-    
-              - Selenium Webdriver - 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
-          - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
-          - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
-          - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
-    
-              - Selenium Grid -  시스템에서 다양한 웹 브라우져를 동시 (parallel)에 테스팅하는 기능을 제공합니다.
+    - 웹을 자동화하고 테스트하는데 사용하는 프레임워크로 Selenium IDE, Selenium RC(구버전), Selenium Webdriver, Selenium Grid로 구성됩니다.
+
+  - Selenium IDE
 
 
-     -  Selenium의 특징
-          - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
-          
-          - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
-          
-          - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
-          
-       - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
-       
-       - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
-       
-       - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
-       
-       -  Selenium을 사용하기 위한 환경설정
-       
-            스크래핑에서는 웹 앱을 테스트 하는 용도로 개발된 Selenium을 응용해서 스크래핑에 사용합니다. 특히 웹드라이버 (Webdriver)를 사용해서 파이썬으로 웹 브라우져를 제어합니다. 가져올 데이터가 존재하는 웹페이지로 이동하고, 필요한 데이터를 선택해서 파이썬으로 가져오는 겁니다. 데이터를 선택할 때는 셀렉터를 사용한다. 이러한 일들을 실습하기 위해서는 다음의 환경설정을 완료 해야합니다.
-       
-          - 사용할 웹브라우저 설치(최신버전)
-          - 크롬 웹드라이버 다운로드
-          - 파이썬 셀레늄 모듈 설치
-       
-       - Selenium 크롤링 과정
-       
-         1. Selenium 라이브러리 설치
-       
-            - ```pip install selenium```
-         
-         2. Chrome Driver 설치
-         
-            - (https://chromedriver.chromium.org/downloads)에서 자신의 크롬 브라우져 버전과 맞는 chromedriver를 다운 받습니다.
-         
-         3. Selenium 실행
-         
-            - 드라이버를 열고 검색창에 자신이 검색할 검색어를 쳐보자.
-         
-            ```
-            driver = webdriver.Chrome() # 크롬드라이버 설치한 경로 작성 필요 
-            driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl") # 구글 이미지 
-            ```
-         
-            - 검색 url
-         
-            ```
-            elem = driver.find_element_by_name("q") #구글 검색창 선택
-            elem.send_keys(name) # 검색창에 검색할 내용(name)넣기
-            elem.send_keys(Keys.RETURN) # 검색할 내용을 넣고 enter를 치는것!
-            ```
-         
-         4. 사진의 url 확인
-         
-            ```python
-            imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd") #작게 뜬 이미지들 모두 선택(elements)
-            for img in imgs:
-                try:
-                    img.click()
-                    time.sleep(2)
-                    imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
-                    # 크게 뜬 이미지 선택하여 "src" 속성을 받아옴
-                    path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\" 
-                    #저장할 경로
-                    rllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg") // count = count + 1
-                    if count > 260: 
-                    #다운 받을 이미지 갯수 조정
-                        break
-                        except:
-                            pass
-            ```
-    
-         5. 최종 파이썬 코드
-         
-            ```python
-            from selenium import webdriver
-            from selenium.webdriver.common.keys import Keys
-            import time
-            import urllib.request
-            import os
-            ```
-    
-            - 폴더 생성 여부
-         
-            ```python
-            def createDirectory(directory):
-                try:
-                    if not os.path.exists(directory):
-                        os.makedirs(directory)
-                    except OSError:
-                        print("Error: Failed to create the directory.")
-                        
-            def crawling_img(name):
-                driver = webdriver.Chrome()
-                driver.get("https://www.google.co.kr/imghphl=ko&tab=wi&authuser=0&ogbl")
-                elem = driver.find_element_by_name("q")
-                elem.send_keys(name)
-                elem.send_keys(Keys.RETURN)
-                # Get scroll height
-                SCROLL_PAUSE_TIME = 1 
-                 # 브라우저의 높이를 자바스크립트로 찾음
-                last_height = driver.execute_script("return document.body.scrollHeight") 
-                  while True:
-                        # Scroll down to bottom == 브라우저 끝까지 스크롤을 내림
-                        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                        # Wait to load page
-                        time.sleep(SCROLL_PAUSE_TIME)
-                        # Calculate new scroll height and compare with last scroll height
-                        new_height = driver.execute_script("return document.body.scrollHeight")
-                        if new_height == last_height:
-                            try:
-                             driver.find_element_by_css_selector(".mye4qd").click()
-                            except:
-                                break
-                                last_height = new_height
-                                imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
-                          dir = "폴더명" + name
-                          createDirectory(dir) #폴더 생성
-                          count = 1
-                          for img in imgs:
-                              try:
-                                  img.click()
-                                  time.sleep(2)
-                                  imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
-                                    path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\"urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg")
-                                    count = count + 1
-                                    if count >= 260:
-                                        break
-                                        except:
-                                            pass
-                  driver.close()
-                  함수2 = ["넣고 싶은 검색어"]
-                  
-                  for 함수1 in 함수2:
-                      crawling_img(함수1)
-            ```
+    - 사용자가 웹 브라우저에서 수행한 동작을 기록하고, 이를 다시 재현합니다. Selenium 패키지 내의 모든 도구 중 가장 간단하고 쉬운 도구입니다.
 
+  - Selenium RC
+
+
+    - Selenium Webdriver가 나오기 전에 있었던 버전으로 사용자가 원하는 프로그래밍 언어로 테스트 스크립트를 작성할 수 있는 서버입니다.
+
+      - Selenium Webdriver: 웹 어플리케이션을 테스팅할 때 사용할 수 있는 무료 도구이며, API를 제공하는 오픈소스 프레임워크입니다.
+
+        - Webdriver는 웹 브라우저와 직접 통신하고 기본 호환성을 사용하여 자동화합니다.
+        - GUI가 없거나 헤드리스 브라우저인 HtmlUnitDriver를 지원합니다.
+        - iPhone/Android 애플리케이션의 테스트를 효율적으로 지원하도록 설계되었습니다. 
+
+    - 한정적으로 지원되는 브라우저 내에서 테스트 스크립트를 실행할 수 있습니다.
+    - 테스트 스크립트를 실행하기 전에 서버를 시작해야 합니다.
+    - Android 애플리케이션 테스트를 지원하지 않습니다.
+
+  - Selenium의 특징
+
+
+    - 오픈소스 테스트 도구이기 때문에 Selenium 사용자에게 라이센스 비용이 발생하지 않습니다.
+    - Selenium은 크로스 브라우저 테스트를 지원하는 크로스 플랫폼 도구입니다.
+    - Selenium은 여러 프로그래밍 언어 (Java, C #, Ruby, Python, Pearl 등)를 지원합니다.
+    - Selenium 사용자는 Android, Windows, Mac, iOS 및 Linux와 같은 모든 운영체제에서 테스트를 수행 할 수 있습니다.
+    - Selenium은 Safari, Chrome, IE, Mozilla 및 Opera와 같은 다양한 브라우저에서 사용할 수 있습니다.
+    - 분산 테스트를 위하여 Selenium을 JUnit, TestNG 및 NUnit과 같은 다른 프레임워크와 통합할 수 있습니다.
+
+  - Selenium을 사용하기 위한 환경설정
+
+
+    - 스크래핑에서는 웹 앱을 테스트 하는 용도로 개발된 Selenium을 응용해서 스크래핑에 사용합니다. 특히 웹드라이버 (Webdriver)를 사용해서 파이썬으로 웹 브라우져를 제어합니다. 가져올 데이터가 존재하는 웹페이지로 이동하고, 필요한 데이터를 선택해서 파이썬으로 가져오는 겁니다. 데이터를 선택할 때는 셀렉터를 사용한다. 이러한 일들을 실습하기 위해서는 다음의 환경설정을 완료 해야합니다.
+
+      - 사용할 웹브라우저 설치(최신버전)
+      - 크롬 웹드라이버 다운로드
+      - 파이썬 셀레늄 모듈 설치
+
+  - Selenium 크롤링 과정
+
+    1. Selenium 라이브러리 설치: `pip install selenium`
+
+    2. Chrome Driver 설치
+
+       - (https://chromedriver.chromium.org/downloads)에서 자신의 크롬 브라우져 버전과 맞는 chromedriver를 다운 받습니다.
+
+    3. Selenium 실행
+
+       - 드라이버를 열고 검색창에 자신이 검색할 검색어를 쳐보자.
+
+       ```python
+       # 크롬드라이버 설치한 경로 작성 필요 
+       driver = webdriver.Chrome()
+       # 구글 이미지
+       driver.get("https://www.google.co.kr/imghp?hl=ko&tab=wi&authuser=0&ogbl") 
+       ```
+
+       - 검색 url
+
+         ```python
+         #구글 검색창 선택
+         elem = driver.find_element_by_name("q")
+         # 검색창에 검색할 내용(name)넣기
+         elem.send_keys(name)
+         # 검색할 내용을 넣고 enter를 치는것!
+         elem.send_keys(Keys.RETURN)
+         ```
+
+    4. 사진의 url 확인
+
+       ```python
+       imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd") #작게 뜬 이미지들 모두 선택(elements)
+               for img in imgs:
+                   try:
+                       img.click()
+                       time.sleep(2)
+                       imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
+                       # 크게 뜬 이미지 선택하여 "src" 속성을 받아옴
+                       path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\" 
+                       #저장할 경로
+                       rllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg") // count = count + 1
+                       if count > 260: 
+                       #다운 받을 이미지 갯수 조정
+                           break
+                           except:
+                               pass
+       ```
+
+    5. 최종 파이썬 코드
+
+       ```python
+       from selenium import webdriver
+       from selenium.webdriver.common.keys import Keys
+       import time
+       import urllib.request
+       import os
+       ```
+
+       - 폴더 생성 여부
+
+         ```python
+         def createDirectory(directory):
+                     try:
+                         if not os.path.exists(directory):
+                             os.makedirs(directory)
+                         except OSError:
+                             print("Error: Failed to create the directory.")
+                             
+                 def crawling_img(name):
+                     driver = webdriver.Chrome()
+                     driver.get("https://www.google.co.kr/imghphl=ko&tab=wi&authuser=0&ogbl")
+                     elem = driver.find_element_by_name("q")
+                     elem.send_keys(name)
+                     elem.send_keys(Keys.RETURN)
+                     # Get scroll height
+                     SCROLL_PAUSE_TIME = 1 
+                      # 브라우저의 높이를 자바스크립트로 찾음
+                     last_height = driver.execute_script("return document.body.scrollHeight") 
+                       while True:
+                             # Scroll down to bottom == 브라우저 끝까지 스크롤을 내림
+                             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                             # Wait to load page
+                             time.sleep(SCROLL_PAUSE_TIME)
+                             # Calculate new scroll height and compare with last scroll height
+                             new_height = driver.execute_script("return document.body.scrollHeight")
+                             if new_height == last_height:
+                                 try:
+                                  driver.find_element_by_css_selector(".mye4qd").click()
+                                 except:
+                                     break
+                                     last_height = new_height
+                                     imgs = driver.find_elements_by_css_selector(".rg_i.Q4LuWd")
+                               dir = "폴더명" + name
+                               createDirectory(dir) #폴더 생성
+                               count = 1
+                               for img in imgs:
+                                   try:
+                                       img.click()
+                                       time.sleep(2)
+                                       imgUrl = driver.find_element_by_xpath('//*[@id="Sva75c"]/div/div/div[3]/div[2]/c-wiz/div/div[1]/div[1]/div[2]/div[1]/a/img').get_attribute("src")
+                                         path = "C:\\Users\\paqgl\\PycharmProjects\\pythonProject_crawling\\bs4\\idols\\" + name + "\\"urllib.request.urlretrieve(imgUrl, path + name + str(count) + ".jpg")
+                                         count = count + 1
+                                         if count >= 260:
+                                             break
+                                             except:
+                                                 pass
+                       driver.close()
+                       함수2 = ["넣고 싶은 검색어"]
+                       
+                       for 함수1 in 함수2:
+                           crawling_img(함수1)
+         ```
 
 
 
